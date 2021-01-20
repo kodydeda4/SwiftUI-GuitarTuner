@@ -3,24 +3,33 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		33EE30A825B8681D00874B5D /* GuitarTunerSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EE30A725B8681D00874B5D /* GuitarTunerSwiftUIApp.swift */; };
-		33EE30AA25B8681D00874B5D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EE30A925B8681D00874B5D /* ContentView.swift */; };
+		33EE30AA25B8681D00874B5D /* RootState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EE30A925B8681D00874B5D /* RootState.swift */; };
 		33EE30AC25B8681E00874B5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33EE30AB25B8681E00874B5D /* Assets.xcassets */; };
 		33EE30AF25B8681E00874B5D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33EE30AE25B8681E00874B5D /* Preview Assets.xcassets */; };
+		33EE30BA25B8691900874B5D /* MusicTheory in Frameworks */ = {isa = PBXBuildFile; productRef = 33EE30B925B8691900874B5D /* MusicTheory */; };
+		33EE30BE25B8692900874B5D /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 33EE30BD25B8692900874B5D /* ComposableArchitecture */; };
+		33EE30CC25B86A5E00874B5D /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EE30CB25B86A5E00874B5D /* View+Extensions.swift */; };
+		33EE30D225B86AA900874B5D /* SoundClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EE30D125B86AA900874B5D /* SoundClient.swift */; };
+		33EE30D525B86AD000874B5D /* MidiSoundFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EE30D425B86AD000874B5D /* MidiSoundFont.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		33EE30A425B8681D00874B5D /* GuitarTunerSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GuitarTunerSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33EE30A725B8681D00874B5D /* GuitarTunerSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuitarTunerSwiftUIApp.swift; sourceTree = "<group>"; };
-		33EE30A925B8681D00874B5D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		33EE30A925B8681D00874B5D /* RootState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootState.swift; sourceTree = "<group>"; };
 		33EE30AB25B8681E00874B5D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		33EE30AE25B8681E00874B5D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		33EE30B025B8681E00874B5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		33EE30B125B8681E00874B5D /* GuitarTunerSwiftUI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GuitarTunerSwiftUI.entitlements; sourceTree = "<group>"; };
+		33EE30CB25B86A5E00874B5D /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
+		33EE30CF25B86A8600874B5D /* emuaps_8mb.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = emuaps_8mb.sf2; sourceTree = "<group>"; };
+		33EE30D125B86AA900874B5D /* SoundClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundClient.swift; sourceTree = "<group>"; };
+		33EE30D425B86AD000874B5D /* MidiSoundFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MidiSoundFont.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -28,6 +37,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33EE30BE25B8692900874B5D /* ComposableArchitecture in Frameworks */,
+				33EE30BA25B8691900874B5D /* MusicTheory in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,12 +64,8 @@
 		33EE30A625B8681D00874B5D /* GuitarTunerSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
-				33EE30A725B8681D00874B5D /* GuitarTunerSwiftUIApp.swift */,
-				33EE30A925B8681D00874B5D /* ContentView.swift */,
-				33EE30AB25B8681E00874B5D /* Assets.xcassets */,
-				33EE30B025B8681E00874B5D /* Info.plist */,
-				33EE30B125B8681E00874B5D /* GuitarTunerSwiftUI.entitlements */,
-				33EE30AD25B8681E00874B5D /* Preview Content */,
+				33EE30DC25B86B7A00874B5D /* GuitarTunerSwiftUI */,
+				33EE30DE25B86BA500874B5D /* Misc */,
 			);
 			path = GuitarTunerSwiftUI;
 			sourceTree = "<group>";
@@ -69,6 +76,70 @@
 				33EE30AE25B8681E00874B5D /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		33EE30C825B86A3500874B5D /* State */ = {
+			isa = PBXGroup;
+			children = (
+				33EE30A925B8681D00874B5D /* RootState.swift */,
+			);
+			path = State;
+			sourceTree = "<group>";
+		};
+		33EE30C925B86A3B00874B5D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		33EE30CA25B86A3F00874B5D /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				33EE30CB25B86A5E00874B5D /* View+Extensions.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		33EE30CE25B86A6B00874B5D /* MidiSoundFonts */ = {
+			isa = PBXGroup;
+			children = (
+				33EE30D425B86AD000874B5D /* MidiSoundFont.swift */,
+				33EE30CF25B86A8600874B5D /* emuaps_8mb.sf2 */,
+			);
+			path = MidiSoundFonts;
+			sourceTree = "<group>";
+		};
+		33EE30D025B86AA000874B5D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				33EE30D125B86AA900874B5D /* SoundClient.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		33EE30DC25B86B7A00874B5D /* GuitarTunerSwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				33EE30A725B8681D00874B5D /* GuitarTunerSwiftUIApp.swift */,
+				33EE30C825B86A3500874B5D /* State */,
+				33EE30C925B86A3B00874B5D /* Views */,
+				33EE30D025B86AA000874B5D /* Model */,
+				33EE30CA25B86A3F00874B5D /* Common */,
+				33EE30CE25B86A6B00874B5D /* MidiSoundFonts */,
+			);
+			path = GuitarTunerSwiftUI;
+			sourceTree = "<group>";
+		};
+		33EE30DE25B86BA500874B5D /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				33EE30B125B8681E00874B5D /* GuitarTunerSwiftUI.entitlements */,
+				33EE30B025B8681E00874B5D /* Info.plist */,
+				33EE30AB25B8681E00874B5D /* Assets.xcassets */,
+				33EE30AD25B8681E00874B5D /* Preview Content */,
+			);
+			path = Misc;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -87,6 +158,10 @@
 			dependencies = (
 			);
 			name = GuitarTunerSwiftUI;
+			packageProductDependencies = (
+				33EE30B925B8691900874B5D /* MusicTheory */,
+				33EE30BD25B8692900874B5D /* ComposableArchitecture */,
+			);
 			productName = GuitarTunerSwiftUI;
 			productReference = 33EE30A425B8681D00874B5D /* GuitarTunerSwiftUI.app */;
 			productType = "com.apple.product-type.application";
@@ -114,6 +189,10 @@
 				Base,
 			);
 			mainGroup = 33EE309B25B8681D00874B5D;
+			packageReferences = (
+				33EE30B825B8691900874B5D /* XCRemoteSwiftPackageReference "MusicTheory" */,
+				33EE30BC25B8692900874B5D /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+			);
 			productRefGroup = 33EE30A525B8681D00874B5D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -140,7 +219,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				33EE30AA25B8681D00874B5D /* ContentView.swift in Sources */,
+				33EE30D225B86AA900874B5D /* SoundClient.swift in Sources */,
+				33EE30AA25B8681D00874B5D /* RootState.swift in Sources */,
+				33EE30CC25B86A5E00874B5D /* View+Extensions.swift in Sources */,
+				33EE30D525B86AD000874B5D /* MidiSoundFont.swift in Sources */,
 				33EE30A825B8681D00874B5D /* GuitarTunerSwiftUIApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -268,14 +350,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = GuitarTunerSwiftUI/GuitarTunerSwiftUI.entitlements;
+				CODE_SIGN_ENTITLEMENTS = GuitarTunerSwiftUI/Misc/GuitarTunerSwiftUI.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_ASSET_PATHS = "\"GuitarTunerSwiftUI/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"GuitarTunerSwiftUI/Misc/Preview Content\"";
 				DEVELOPMENT_TEAM = W6LQK45783;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = GuitarTunerSwiftUI/Info.plist;
+				INFOPLIST_FILE = GuitarTunerSwiftUI/Misc/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -292,14 +374,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = GuitarTunerSwiftUI/GuitarTunerSwiftUI.entitlements;
+				CODE_SIGN_ENTITLEMENTS = GuitarTunerSwiftUI/Misc/GuitarTunerSwiftUI.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_ASSET_PATHS = "\"GuitarTunerSwiftUI/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"GuitarTunerSwiftUI/Misc/Preview Content\"";
 				DEVELOPMENT_TEAM = W6LQK45783;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = GuitarTunerSwiftUI/Info.plist;
+				INFOPLIST_FILE = GuitarTunerSwiftUI/Misc/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -333,6 +415,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		33EE30B825B8691900874B5D /* XCRemoteSwiftPackageReference "MusicTheory" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/cemolcay/MusicTheory";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.3.1;
+			};
+		};
+		33EE30BC25B8692900874B5D /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.10.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		33EE30B925B8691900874B5D /* MusicTheory */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 33EE30B825B8691900874B5D /* XCRemoteSwiftPackageReference "MusicTheory" */;
+			productName = MusicTheory;
+		};
+		33EE30BD25B8692900874B5D /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 33EE30BC25B8692900874B5D /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 33EE309C25B8681D00874B5D /* Project object */;
 }
