@@ -9,37 +9,31 @@ import SwiftUI
 import ComposableArchitecture
 import MusicTheory
 
-struct GuitarTuning: Equatable, Hashable {
+
+struct Guitar {
     enum Tuning: String, CaseIterable {
         case standard = "Standard"
         case dropD = "Drop D"
     }
     
-    var tuning: Tuning
-    
-    var notes: [Pitch] {
-        switch tuning {
-        case .standard:
-            return ["E2", "A2", "D3", "G3", "B3", "E4"]
-        case .dropD:
-            return ["D2", "A2", "D3", "G3", "B3", "E4"]
-        }
-    }
-}
-
-
-struct Root {
     struct State: Equatable {
-        // state
-        var guitarTuning = GuitarTuning(tuning: .standard)
-        
+        var tuning: Tuning = .standard
+        var tuningNotes: [Pitch] {
+            switch tuning {
+   
+            case .standard:
+                return ["E2", "A2", "D3", "G3", "B3", "E4"]
+            case .dropD:
+                return ["D2", "A2", "D3", "G3", "B3", "E4"]
+            }
+        }
     }
     
     enum Action: Equatable {
         // action
         case playMidiNote(Int)
         case stopMidiNote(Int)
-        case changeGuitarTuning(GuitarTuning)
+        case changeTuning(Tuning)
     }
     
     struct Environment {
@@ -49,7 +43,7 @@ struct Root {
     }
 }
 
-extension Root {
+extension Guitar {
     static let reducer = Reducer<State, Action, Environment>.combine(
         // pullbacks
         
@@ -65,15 +59,15 @@ extension Root {
                 environment.soundModel.stop(midiNote)
                 return .none
 
-            case let .changeGuitarTuning(guitarTuning):
-                state.guitarTuning = guitarTuning
+            case let .changeTuning(tuning):
+                state.tuning = tuning
                 return .none
             }
         }
     )
 }
 
-extension Root {
+extension Guitar {
     static let defaultStore = Store(
         initialState: .init(),
         reducer: reducer,
@@ -81,16 +75,22 @@ extension Root {
     )
 }
 
-// MARK:- RootView
 
-struct RootView: View {
-    let store: Store<Root.State, Root.Action>
+
+// MARK:- GuitarView
+
+struct GuitarView: View {
+    let store: Store<Guitar.State, Guitar.Action>
     
     var body: some View {
         WithViewStore(store) { viewStore in
-            VStack {
-                HStack {
-                    ForEach(viewStore.guitarTuning.notes.map(\.rawValue), id: \.self) { midiNote in
+            ZStack {
+                Image("fender_placeholder")
+                    .resizable()
+                    .scaledToFill()
+
+                VStack {
+                    ForEach(viewStore.tuningNotes.map(\.rawValue).reversed(), id: \.self) { midiNote in
                         Button(Pitch(midiNote: midiNote).description) {}
                             .padding()
                             .background(Color.accentColor)
@@ -104,17 +104,16 @@ struct RootView: View {
                     }
                 }
             }
-            .frame(width: 1920/2, height: 1080/2)
-            .padding()
-            .navigationTitle("Guitar Tuning")
+            .frame(width: 970/2, height: 1260/2)
+            .navigationTitle("Guitar Tuner")
             .toolbar {
                 ToolbarItem {
-                    Picker("Guitar Tuning",
+                    Picker("Tuning",
                            selection: viewStore.binding(
-                            get: \.guitarTuning,
-                            send: Root.Action.changeGuitarTuning)
+                            get: \.tuning,
+                            send: Guitar.Action.changeTuning)
                     ) {
-                        ForEach(GuitarTuning.Tuning.allCases, id: \.self) { tuning in
+                        ForEach(Guitar.Tuning.allCases, id: \.self) { tuning in
                             Text(tuning.rawValue)
                         }
                     }
@@ -124,8 +123,8 @@ struct RootView: View {
     }
 }
 
-struct RootView_Previews: PreviewProvider {
+struct GuitarView_Previews: PreviewProvider {
     static var previews: some View {
-        RootView(store: Root.defaultStore)
+        GuitarView(store: Guitar.defaultStore)
     }
 }
