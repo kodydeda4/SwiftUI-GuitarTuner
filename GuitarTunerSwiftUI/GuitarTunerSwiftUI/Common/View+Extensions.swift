@@ -8,9 +8,8 @@
 import Foundation
 import SwiftUI
 
-/* MARK:- Handle Press And Release Events in SwiftUI
- https://serialcoder.dev/ios-swift-tutorials/swiftui/handle-press-and-release-events-in-swiftui/
-*/
+// [Source] Handle Press And Release Events in SwiftUI
+// https://serialcoder.dev/ios-swift-tutorials/swiftui/handle-press-and-release-events-in-swiftui/
 
 struct PressActions: ViewModifier {
     var onPress: () -> Void
@@ -37,26 +36,5 @@ extension View {
         }, onRelease: {
             onRelease()
         }))
-    }
-}
-
-// Example
-private struct ButtonView: View {
-    @State var isPressed = false
-    
-    var body: some View {
-        Button(isPressed ? "Pressed" : "Released") {}
-        .pressAction {
-            isPressed.toggle()
-        }
-        onRelease: {
-            isPressed.toggle()
-        }
-    }
-}
-
-private struct ButtonView_Previews: PreviewProvider {
-    static var previews: some View {
-        ButtonView()
     }
 }

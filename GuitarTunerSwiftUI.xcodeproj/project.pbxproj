@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3332440025B8CC0F00273E98 /* StringTreeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333243FF25B8CC0F00273E98 /* StringTreeView.swift */; };
+		339E6D7125B8F7F7000483A0 /* NSBezierPath+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339E6D7025B8F7F7000483A0 /* NSBezierPath+Extension.swift */; };
+		339E6D7425B8F875000483A0 /* NSColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339E6D7325B8F875000483A0 /* NSColor+Extension.swift */; };
+		339E6D7725B8F8BE000483A0 /* GuitarTunersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339E6D7625B8F8BE000483A0 /* GuitarTunersView.swift */; };
 		33EE30A825B8681D00874B5D /* GuitarTunerSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EE30A725B8681D00874B5D /* GuitarTunerSwiftUIApp.swift */; };
 		33EE30AA25B8681D00874B5D /* RootState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EE30A925B8681D00874B5D /* RootState.swift */; };
 		33EE30AC25B8681E00874B5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33EE30AB25B8681E00874B5D /* Assets.xcassets */; };
@@ -20,7 +22,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		333243FF25B8CC0F00273E98 /* StringTreeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringTreeView.swift; path = "../../../../../../Downloads/SwiftyIllustrator-main/Illustrator/StringTreeView.swift"; sourceTree = "<group>"; };
+		339E6D7025B8F7F7000483A0 /* NSBezierPath+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSBezierPath+Extension.swift"; sourceTree = "<group>"; };
+		339E6D7325B8F875000483A0 /* NSColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSColor+Extension.swift"; sourceTree = "<group>"; };
+		339E6D7625B8F8BE000483A0 /* GuitarTunersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuitarTunersView.swift; sourceTree = "<group>"; };
 		33EE30A425B8681D00874B5D /* GuitarTunerSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GuitarTunerSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33EE30A725B8681D00874B5D /* GuitarTunerSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuitarTunerSwiftUIApp.swift; sourceTree = "<group>"; };
 		33EE30A925B8681D00874B5D /* RootState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootState.swift; sourceTree = "<group>"; };
@@ -91,7 +95,7 @@
 		33EE30C925B86A3B00874B5D /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				333243FF25B8CC0F00273E98 /* StringTreeView.swift */,
+				339E6D7625B8F8BE000483A0 /* GuitarTunersView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -100,6 +104,8 @@
 			isa = PBXGroup;
 			children = (
 				33EE30CB25B86A5E00874B5D /* View+Extensions.swift */,
+				339E6D7025B8F7F7000483A0 /* NSBezierPath+Extension.swift */,
+				339E6D7325B8F875000483A0 /* NSColor+Extension.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -223,8 +229,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				33EE30D225B86AA900874B5D /* SoundClient.swift in Sources */,
-				3332440025B8CC0F00273E98 /* StringTreeView.swift in Sources */,
+				339E6D7725B8F8BE000483A0 /* GuitarTunersView.swift in Sources */,
 				33EE30AA25B8681D00874B5D /* RootState.swift in Sources */,
+				339E6D7425B8F875000483A0 /* NSColor+Extension.swift in Sources */,
+				339E6D7125B8F7F7000483A0 /* NSBezierPath+Extension.swift in Sources */,
 				33EE30CC25B86A5E00874B5D /* View+Extensions.swift in Sources */,
 				33EE30D525B86AD000874B5D /* MidiSoundFont.swift in Sources */,
 				33EE30A825B8681D00874B5D /* GuitarTunerSwiftUIApp.swift in Sources */,
