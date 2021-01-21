@@ -17,6 +17,8 @@ struct GuitarPaths {
     
     static var allPaths: [NSBezierPath] = [
         fretboard,
+        fret,
+        nut,
         rearTunersBase,
         rearTunersStem,
         rearTunersKey,
