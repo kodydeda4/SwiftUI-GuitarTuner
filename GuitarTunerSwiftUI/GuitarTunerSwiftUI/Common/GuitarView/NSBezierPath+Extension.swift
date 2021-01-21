@@ -4,11 +4,13 @@
 //
 //  Created by Kody Deda on 1/20/21.
 //
+//  ------------------------------------------------------------------
+//  [Source] SwiftUI - SVG to UIBezierPath with Animation
+//  https://www.youtube.com/watch?v=IUpN7sIwaqc&ab_channel=StewartLynch
+//  ------------------------------------------------------------------
 
 import Cocoa
-
-// [Source] SwiftUI - SVG to UIBezierPath with Animation
-// https://www.youtube.com/watch?v=IUpN7sIwaqc&ab_channel=StewartLynch
+import SwiftUI
 
 extension NSBezierPath {
     static func calculateBounds(paths: [NSBezierPath]) -> CGRect {
@@ -20,10 +22,7 @@ extension NSBezierPath {
     }
 }
 
-// [Source] How can I convert NSBezierPath to CGPath?
-//https://stackoverflow.com/questions/1815568/how-can-i-convert-nsbezierpath-to-cgpath
 extension NSBezierPath {
-
     public var cgPath: CGPath {
         let path = CGMutablePath()
         var points = [CGPoint](repeating: .zero, count: 3)

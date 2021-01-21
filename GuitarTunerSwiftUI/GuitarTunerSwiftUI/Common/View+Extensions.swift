@@ -4,12 +4,12 @@
 //
 //  Created by Kody Deda on 1/20/21.
 //
+//  -----------------------------------------------------------------------------------------------
+//  [Source] Handle Press And Release Events in SwiftUI
+//  https://serialcoder.dev/ios-swift-tutorials/swiftui/handle-press-and-release-events-in-swiftui/
+//  -----------------------------------------------------------------------------------------------
 
-import Foundation
 import SwiftUI
-
-// [Source] Handle Press And Release Events in SwiftUI
-// https://serialcoder.dev/ios-swift-tutorials/swiftui/handle-press-and-release-events-in-swiftui/
 
 struct PressActions: ViewModifier {
     var onPress: () -> Void

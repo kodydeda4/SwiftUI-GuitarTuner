@@ -9,7 +9,6 @@ import SwiftUI
 import ComposableArchitecture
 import MusicTheory
 
-
 struct Guitar {
     enum Tuning: String, CaseIterable {
         case standard = "Standard"
@@ -77,9 +76,9 @@ extension Guitar {
 
 
 
-// MARK:- GuitarView
+// MARK:- ContentView
 
-struct GuitarView: View {
+struct ContentView: View {
     let store: Store<Guitar.State, Guitar.Action>
     
     var body: some View {
@@ -109,8 +108,8 @@ struct GuitarView: View {
     }
 }
 
-struct GuitarView_Previews: PreviewProvider {
+struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        GuitarView(store: Guitar.defaultStore)
+        ContentView(store: Guitar.defaultStore)
     }
 }
