@@ -58,7 +58,6 @@
 		339E6D8525B9B8AB000483A0 /* GuitarView */ = {
 			isa = PBXGroup;
 			children = (
-				339E6D8125B90768000483A0 /* GuitarView.swift */,
 				33A8306125B9CAAF00B88CB5 /* GuitarPaths.swift */,
 				33A8307025B9D65A00B88CB5 /* ShapeView.swift */,
 				339E6D7025B8F7F7000483A0 /* NSBezierPath+Extension.swift */,
@@ -110,6 +109,7 @@
 		33EE30C925B86A3B00874B5D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				339E6D8125B90768000483A0 /* GuitarView.swift */,
 				339E6D7625B8F8BE000483A0 /* GuitarTunersView.swift */,
 			);
 			path = Views;
