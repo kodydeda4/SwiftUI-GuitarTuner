@@ -6,12 +6,67 @@
 //
 
 import Cocoa
+import SwiftUI
 
 // [Source] SwiftUI - SVG to UIBezierPath with Animation
 // https://www.youtube.com/watch?v=IUpN7sIwaqc&ab_channel=StewartLynch
 
+// MARK:- View
+struct GuitarShapeView: View {
+    let pathBounds = NSBezierPath.calculateBounds(paths: GuitarShape.allPaths)
+    
+    var body: some View {
+        let width: CGFloat = 300
+        let height: CGFloat = width
+            * (pathBounds.height/pathBounds.width)
+        
+        ZStack {
+            ZStack {
+            ShapeView(bezier: GuitarShape.guitarFretboard, pathBounds: pathBounds)
+                .stroke(Color.red)
+            ShapeView(bezier: GuitarShape.guitarFrets, pathBounds: pathBounds)
+                .stroke(Color.red)
+            ShapeView(bezier: GuitarShape.guitarNut, pathBounds: pathBounds)
+                .stroke(Color.red)
+            ShapeView(bezier: GuitarShape.rearTuners_Base, pathBounds: pathBounds)
+                .stroke(Color.red)
+            ShapeView(bezier: GuitarShape.rearTuners_Stem, pathBounds: pathBounds)
+                .stroke(Color.red)
+            }
+            
+            ShapeView(bezier: GuitarShape.rearTuners_Key, pathBounds: pathBounds)
+                .stroke(Color.red)
+            ShapeView(bezier: GuitarShape.guitar_Headstock, pathBounds: pathBounds)
+                .stroke(Color.red)
+            ShapeView(bezier: GuitarShape.frontTuners_Base, pathBounds: pathBounds)
+                .stroke(Color.red)
+            ShapeView(bezier: GuitarShape.frontTuners_Bolt, pathBounds: pathBounds)
+                .stroke(Color.red)
+            ShapeView(bezier: GuitarShape.guitar_Strings, pathBounds: pathBounds)
+                .stroke(Color.red)
+            ShapeView(bezier: GuitarShape.stringTree_Base, pathBounds: pathBounds)
+                .stroke(Color.red)
+            ShapeView(bezier: GuitarShape.stringTree_Bolt, pathBounds: pathBounds)
+                .stroke(Color.red)
+            ShapeView(bezier: GuitarShape.frontTuners_Peg, pathBounds: pathBounds)
+                .stroke(Color.red)
+            
+        }
+        .frame(width: width, height: height )
+    }
+}
+
+struct GuitarShapeView_Previews: PreviewProvider {
+    static var previews: some View {
+        GuitarShapeView()
+    }
+}
+
+// MARK:- Shapes
+
 struct GuitarShape {
     static var allPaths: [NSBezierPath] = [
+        guitarFretboard,
         rearTuners_Base,
         rearTuners_Stem,
         rearTuners_Key,
@@ -23,6 +78,50 @@ struct GuitarShape {
         stringTree_Bolt,
         frontTuners_Peg,
     ]
+    
+    static var guitarFretboard: NSBezierPath {
+        let shape = NSBezierPath()
+        shape.move(to: CGPoint(x: 399.08, y: 1358))
+        shape.line(to: CGPoint(x: 129.81, y: 1358))
+        shape.line(to: CGPoint(x: 129.81, y: 1122.43))
+        shape.line(to: CGPoint(x: 399.08, y: 1122.43))
+        shape.line(to: CGPoint(x: 399.08, y: 1358))
+        shape.close()
+        shape.move(to: CGPoint(x: 399.08, y: 1374))
+        shape.line(to: CGPoint(x: 129.8, y: 1374))
+        shape.line(to: CGPoint(x: 129.8, y: 1539.47))
+        shape.line(to: CGPoint(x: 399.08, y: 1539.47))
+        shape.line(to: CGPoint(x: 399.08, y: 1374))
+        shape.close()
+        shape.move(to: CGPoint(x: 399.08, y: 1069.28))
+        shape.line(to: CGPoint(x: 129.8, y: 1069.28))
+        shape.line(to: CGPoint(x: 129.8, y: 1093.22))
+        shape.line(to: CGPoint(x: 399.08, y: 1093.22))
+        shape.line(to: CGPoint(x: 399.08, y: 1069.28))
+        shape.close()
+        return shape
+    }
+    
+    static var guitarFrets: NSBezierPath {
+        let shape = NSBezierPath()
+        shape.move(to: CGPoint(x: 399.08, y: 1358))
+        shape.line(to: CGPoint(x: 399.08, y: 1374))
+        shape.line(to: CGPoint(x: 129.8, y: 1374))
+        shape.line(to: CGPoint(x: 129.8, y: 1358))
+        shape.close()
+        return shape
+    }
+    
+    static var guitarNut: NSBezierPath {
+        let shape = NSBezierPath()
+        shape.move(to: CGPoint(x: 129.8, y: 1122.45))
+        shape.line(to: CGPoint(x: 399.08, y: 1122.45))
+        shape.line(to: CGPoint(x: 399.08, y: 1093.18))
+        shape.line(to: CGPoint(x: 129.81, y: 1093.18))
+        shape.line(to: CGPoint(x: 129.8, y: 1122.45))
+        shape.close()
+        return shape
+    }
     
     static var rearTuners_Base: NSBezierPath {
         let shape = NSBezierPath()
