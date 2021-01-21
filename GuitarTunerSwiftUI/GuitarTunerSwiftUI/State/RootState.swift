@@ -85,9 +85,7 @@ struct ContentView: View {
         WithViewStore(store) { viewStore in
             HStack {
                 GuitarTunersView(store: store)
-                    .padding()
-                    
-                Spacer()
+                GuitarView() 
             }
             .padding()
             .navigationTitle("Guitar Tuner")
