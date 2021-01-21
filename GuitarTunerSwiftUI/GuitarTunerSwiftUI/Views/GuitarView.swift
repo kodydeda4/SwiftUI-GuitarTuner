@@ -12,7 +12,7 @@
 import Cocoa
 import SwiftUI
 
-private func gradient(_ colors: [Color])  -> LinearGradient {
+func gradient(_ colors: [Color])  -> LinearGradient {
     return LinearGradient(
         gradient: Gradient(colors: colors),
         startPoint: .topLeading,
@@ -27,8 +27,6 @@ private extension ShapeView {
         self.pathBounds = GuitarPaths.pathBounds
     }
 }
-
-
 
 struct GuitarView: View {
     @State var strokeEndAmount: CGFloat = 0
@@ -65,9 +63,6 @@ struct GuitarView: View {
     }
 }
 
-
-
-    
 extension GuitarView {
     //MARK:- FillShapes
     

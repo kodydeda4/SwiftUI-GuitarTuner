@@ -14,7 +14,7 @@ import AVFoundation
 class SoundClient {
     private let audioEngine = AVAudioEngine()
     private let unitSampler = AVAudioUnitSampler()
-    private var midiSoundFont: MidiSoundFont
+    private let midiSoundFont: MidiSoundFont
 
     init(_ midiSoundFont: MidiSoundFont, volume: Float = 0.5) {
         self.midiSoundFont = midiSoundFont
