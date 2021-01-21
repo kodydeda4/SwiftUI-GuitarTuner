@@ -36,52 +36,65 @@ struct GuitarView: View {
                 // Fretboard
                 ShapeView(GuitarPaths.fretboard)
                     .fill(gradient([.white, .black]))
+                    .shadow(radius: 4.0)
+
                 
                 // Fret
                 ShapeView(GuitarPaths.fret)
                     .fill(gradient([.white, .gray]))
+                    .shadow(radius: 4.0)
                     
                 // Nut
                 ShapeView(GuitarPaths.nut)
                     .fill(gradient([.white, .gray]))
+                    .shadow(radius: 4.0)
                 
                 // RearTunersBase
                 ShapeView(GuitarPaths.rearTunersBase)
                     .fill(primaryColor)
+                    .shadow(radius: 4.0)
                 
                 // RearTunersStem
                 ShapeView(GuitarPaths.rearTunersStem)
                     .fill(secondaryColor)
+                    .shadow(radius: 4.0)
             }
             
             // RearTunersKey
             ShapeView(GuitarPaths.rearTunersKey)
                 .fill(primaryColor)
+                .shadow(radius: 4.0)
             
             // GuitarHeadstock
             ShapeView(GuitarPaths.guitarHeadstock)
                 .fill(gradient([.accentColor, .gray]))
+                .shadow(radius: 4.0)
             
             // FrontTunersBase
             ShapeView(GuitarPaths.frontTunersBase)
                 .fill(primaryColor)
+                .shadow(radius: 4.0)
             
             // FrontTunersBolt
             ShapeView(GuitarPaths.frontTunersBolt)
                 .fill(secondaryColor)
+                .shadow(radius: 4.0)
 
             // GuitarStrings
             ShapeView(GuitarPaths.guitarStrings)
                 .fill(gradient([.white, .gray]))
+                .shadow(radius: 4.0)
 
             // StringTreeBase
             ShapeView(GuitarPaths.stringTreeBase)
                 .fill(primaryColor)
+                .shadow(radius: 4.0)
                 
             
             // StringTreeBolt
             ShapeView(GuitarPaths.stringTreeBolt)
                 .fill(secondaryColor)
+                .shadow(radius: 4.0)
             
             // FrontTunersPeg
             ShapeView(GuitarPaths.frontTunersPeg)
