@@ -11,7 +11,7 @@ import SwiftUI
 struct GuitarTunerSwiftUIApp: App {
     var body: some Scene {
         WindowGroup {
-            RootView(store: Root.defaultStore)
+            GuitarView(store: Root.defaultStore)
         }
     }
 }

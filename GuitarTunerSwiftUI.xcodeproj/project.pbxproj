@@ -8,8 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		3392857E25BA160900D7E920 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3392857D25BA160900D7E920 /* RootView.swift */; };
+		3392858425BA191100D7E920 /* PublicFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3392858325BA191100D7E920 /* PublicFunctions.swift */; };
+		3392858825BA1B8000D7E920 /* FillShapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3392858725BA1B8000D7E920 /* FillShapes.swift */; };
+		3392858C25BA1BB100D7E920 /* StrokeShapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3392858B25BA1BB100D7E920 /* StrokeShapes.swift */; };
+		3392858F25BA1C0C00D7E920 /* TunersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3392858E25BA1C0C00D7E920 /* TunersView.swift */; };
 		339E6D7125B8F7F7000483A0 /* NSBezierPath+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339E6D7025B8F7F7000483A0 /* NSBezierPath+Extension.swift */; };
-		339E6D8225B90768000483A0 /* GuitarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339E6D8125B90768000483A0 /* GuitarView.swift */; };
 		33A8306225B9CAAF00B88CB5 /* GuitarPaths.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A8306125B9CAAF00B88CB5 /* GuitarPaths.swift */; };
 		33A8307125B9D65A00B88CB5 /* ShapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A8307025B9D65A00B88CB5 /* ShapeView.swift */; };
 		33EE30A825B8681D00874B5D /* GuitarTunerSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EE30A725B8681D00874B5D /* GuitarTunerSwiftUIApp.swift */; };
@@ -35,8 +38,11 @@
 		3392857925BA09F400D7E920 /* Guitar Acoustic (963KB).sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Guitar Acoustic (963KB).sf2"; sourceTree = "<group>"; };
 		3392857A25BA09F400D7E920 /* Wah Wah Guitar.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Wah Wah Guitar.sf2"; sourceTree = "<group>"; };
 		3392857D25BA160900D7E920 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		3392858325BA191100D7E920 /* PublicFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicFunctions.swift; sourceTree = "<group>"; };
+		3392858725BA1B8000D7E920 /* FillShapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FillShapes.swift; sourceTree = "<group>"; };
+		3392858B25BA1BB100D7E920 /* StrokeShapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeShapes.swift; sourceTree = "<group>"; };
+		3392858E25BA1C0C00D7E920 /* TunersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TunersView.swift; sourceTree = "<group>"; };
 		339E6D7025B8F7F7000483A0 /* NSBezierPath+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSBezierPath+Extension.swift"; sourceTree = "<group>"; };
-		339E6D8125B90768000483A0 /* GuitarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuitarView.swift; sourceTree = "<group>"; };
 		33A8306125B9CAAF00B88CB5 /* GuitarPaths.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuitarPaths.swift; sourceTree = "<group>"; };
 		33A8307025B9D65A00B88CB5 /* ShapeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeView.swift; sourceTree = "<group>"; };
 		33EE30A425B8681D00874B5D /* GuitarTunerSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GuitarTunerSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,16 +71,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		339E6D8525B9B8AB000483A0 /* GuitarView */ = {
-			isa = PBXGroup;
-			children = (
-				33A8306125B9CAAF00B88CB5 /* GuitarPaths.swift */,
-				33A8307025B9D65A00B88CB5 /* ShapeView.swift */,
-				339E6D7025B8F7F7000483A0 /* NSBezierPath+Extension.swift */,
-			);
-			path = GuitarView;
-			sourceTree = "<group>";
-		};
 		33EE309B25B8681D00874B5D = {
 			isa = PBXGroup;
 			children = (
@@ -120,7 +116,9 @@
 			isa = PBXGroup;
 			children = (
 				3392857D25BA160900D7E920 /* RootView.swift */,
-				339E6D8125B90768000483A0 /* GuitarView.swift */,
+				3392858725BA1B8000D7E920 /* FillShapes.swift */,
+				3392858B25BA1BB100D7E920 /* StrokeShapes.swift */,
+				3392858E25BA1C0C00D7E920 /* TunersView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -128,7 +126,10 @@
 		33EE30CA25B86A3F00874B5D /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				339E6D8525B9B8AB000483A0 /* GuitarView */,
+				33A8306125B9CAAF00B88CB5 /* GuitarPaths.swift */,
+				33A8307025B9D65A00B88CB5 /* ShapeView.swift */,
+				339E6D7025B8F7F7000483A0 /* NSBezierPath+Extension.swift */,
+				3392858325BA191100D7E920 /* PublicFunctions.swift */,
 				33EE30CB25B86A5E00874B5D /* View+Extensions.swift */,
 			);
 			path = Common;
@@ -263,11 +264,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				33A8307125B9D65A00B88CB5 /* ShapeView.swift in Sources */,
+				3392858C25BA1BB100D7E920 /* StrokeShapes.swift in Sources */,
 				33A8306225B9CAAF00B88CB5 /* GuitarPaths.swift in Sources */,
 				33EE30D225B86AA900874B5D /* SoundClient.swift in Sources */,
+				3392858825BA1B8000D7E920 /* FillShapes.swift in Sources */,
 				33EE30AA25B8681D00874B5D /* RootState.swift in Sources */,
+				3392858F25BA1C0C00D7E920 /* TunersView.swift in Sources */,
+				3392858425BA191100D7E920 /* PublicFunctions.swift in Sources */,
 				3392857E25BA160900D7E920 /* RootView.swift in Sources */,
-				339E6D8225B90768000483A0 /* GuitarView.swift in Sources */,
 				339E6D7125B8F7F7000483A0 /* NSBezierPath+Extension.swift in Sources */,
 				33EE30CC25B86A5E00874B5D /* View+Extensions.swift in Sources */,
 				33EE30D525B86AD000874B5D /* MidiSoundFont.swift in Sources */,

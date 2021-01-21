@@ -28,3 +28,13 @@ struct ShapeView: Shape {
         return path.applying(transform)
     }
 }
+
+
+
+// MARK:- ShapeView
+extension ShapeView {
+    init(_ bezier: NSBezierPath) {
+        self.bezier = bezier
+        self.pathBounds = GuitarPaths.pathBounds
+    }
+}
