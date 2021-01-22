@@ -18,7 +18,6 @@ struct GuitarShape: Hashable {
     var fillColor: Color = .accentColor
     var strokeColor: Color = .accentColor
     var opacity: Bool = true
-    
 //    var fillColor2: () -> FillStyle = { .init() }
 }
 
@@ -37,7 +36,6 @@ extension GuitarShape {
     static let stringTreeBolt  = GuitarShape(path: Path.stringTreeBolt)
     static let frontTunersPeg  = GuitarShape(path: Path.frontTunersPeg)
 }
-
 
 extension GuitarShape {
     static let allShapes = [
