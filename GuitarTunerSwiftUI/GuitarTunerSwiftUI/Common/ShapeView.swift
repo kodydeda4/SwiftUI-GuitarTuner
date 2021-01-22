@@ -35,6 +35,6 @@ struct ShapeView: Shape {
 extension ShapeView {
     init(_ bezier: NSBezierPath) {
         self.bezier = bezier
-        self.pathBounds = GuitarPaths.pathBounds
+        self.pathBounds = GuitarShape.pathBounds
     }
 }

@@ -7,9 +7,6 @@
 
 import AVFoundation
 
-
-
-
 /// Load and play notes with a MidiSoundFont
 class SoundClient {
     private let audioEngine = AVAudioEngine()

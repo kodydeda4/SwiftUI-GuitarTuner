@@ -12,10 +12,35 @@
 import Cocoa
 import SwiftUI
 
-struct GuitarPaths {
-    static let pathBounds = NSBezierPath.calculateBounds(paths: allPaths)
+struct GuitarShape: Hashable {
+    let id = UUID()
+    var path: NSBezierPath
+    var fillColor: Color = .accentColor
+    var strokeColor: Color = .accentColor
+    var opacity: Bool = true
     
-    static var allPaths: [NSBezierPath] = [
+//    var fillColor2: () -> FillStyle = { .init() }
+}
+
+extension GuitarShape {
+    static let fretboard       = GuitarShape(path: Path.fretboard)
+    static let fret            = GuitarShape(path: Path.fret)
+    static let nut             = GuitarShape(path: Path.nut)
+    static let rearTunersBase  = GuitarShape(path: Path.rearTunersBase)
+    static let rearTunersStem  = GuitarShape(path: Path.rearTunersStem)
+    static let rearTunersKey   = GuitarShape(path: Path.rearTunersKey)
+    static let guitarHeadstock = GuitarShape(path: Path.guitarHeadstock)
+    static let frontTunersBase = GuitarShape(path: Path.frontTunersBase)
+    static let frontTunersBolt = GuitarShape(path: Path.frontTunersBolt)
+    static let guitarStrings   = GuitarShape(path: Path.guitarStrings)
+    static let stringTreeBase  = GuitarShape(path: Path.stringTreeBase)
+    static let stringTreeBolt  = GuitarShape(path: Path.stringTreeBolt)
+    static let frontTunersPeg  = GuitarShape(path: Path.frontTunersPeg)
+}
+
+
+extension GuitarShape {
+    static let allShapes = [
         fretboard,
         fret,
         nut,
@@ -32,7 +57,11 @@ struct GuitarPaths {
     ]
 }
 
-extension GuitarPaths {
+extension GuitarShape {
+    static let pathBounds = NSBezierPath.calculateBounds(paths: allShapes.map(\.path))
+}
+
+private struct Path {
     static var fretboard: NSBezierPath {
         let shape = NSBezierPath()
         shape.move(to: CGPoint(x: 399.08, y: 1358))
@@ -117,7 +146,7 @@ extension GuitarPaths {
         shape.close()
         return shape
     }
-        
+    
     static var rearTunersStem: NSBezierPath {
         let shape = NSBezierPath()
         shape.move(to: CGPoint(x: 112.24, y: 641.1))
@@ -351,7 +380,7 @@ extension GuitarPaths {
         shape.close()
         return shape
     }
-
+    
     static var guitarStrings: NSBezierPath {
         let shape = NSBezierPath()
         shape.move(to: CGPoint(x: 376.65, y: 174.88))
@@ -391,7 +420,6 @@ extension GuitarPaths {
         shape.line(to: CGPoint(x: 157.87, y: 856.66))
         shape.close()
         return shape
-        
     }
     
     static var stringTreeBase: NSBezierPath {
@@ -409,7 +437,7 @@ extension GuitarPaths {
         shape.close()
         return shape
     }
-
+    
     static var stringTreeBolt: NSBezierPath {
         let shape = NSBezierPath()
         shape.move(to: CGPoint(x: 355.15, y: 713.27))
@@ -434,7 +462,7 @@ extension GuitarPaths {
         shape.close()
         return shape
     }
-
+    
     static var frontTunersPeg: NSBezierPath {
         let shape = NSBezierPath()
         shape.move(to: CGPoint(x: 358.52, y: 189.65))
@@ -484,5 +512,3 @@ extension GuitarPaths {
         return shape
     }
 }
-
-
