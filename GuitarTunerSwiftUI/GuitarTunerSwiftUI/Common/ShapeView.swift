@@ -31,10 +31,3 @@ struct ShapeView: Shape {
 
 
 
-// MARK:- ShapeView
-extension ShapeView {
-    init(_ bezier: NSBezierPath) {
-        self.bezier = bezier
-        self.pathBounds = GuitarShape.pathBounds
-    }
-}

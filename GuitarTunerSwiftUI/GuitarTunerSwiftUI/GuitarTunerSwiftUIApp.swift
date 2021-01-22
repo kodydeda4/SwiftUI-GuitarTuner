@@ -12,7 +12,8 @@ struct GuitarTunerSwiftUIApp: App {
     var body: some Scene {
         WindowGroup {
 //            GuitarView(store: Root.defaultStore)
-            GuitarView2(store: Root.defaultStore)
+//            GuitarView2(store: Root.defaultStore)
+            Text("Hello World")
         }
     }
 }

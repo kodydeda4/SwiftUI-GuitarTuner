@@ -19,36 +19,38 @@ import MusicTheory
 
 struct GuitarView2: View {
     let store: Store<Root.State, Root.Action>
-    
+
     @State var strokeEndAmount: CGFloat = 0
     @State var opacity: CGFloat = 0
     @State var isFilled = false
-    
-    
+
+
     let size: CGFloat = 0.2
     let shadowRadius:CGFloat = 4
     let animationDuration: Double = 1
-    
-    
+
+
     var body: some View {
         let width: CGFloat = size * GuitarShape.pathBounds.width
         let height: CGFloat = size * GuitarShape.pathBounds.height
-        
+
         WithViewStore(store) { viewStore in
             NavigationView {
                 List {}
                 ZStack {
-                    ForEach(GuitarShape.allShapes, id: \.self) { shape in
-                        ShapeView(shape.path)
-                            .trim(from: 0, to: strokeEndAmount)
-                            .stroke(Color.red, lineWidth: 2)
-                            .shadow(radius: shadowRadius)
-                            .opacity(isFilled ? 0 : 1)
-                        
-                        ShapeView(shape.path)
-                            .fill(shape.fillColor)
-                            .opacity(isFilled ? 1 : 0)
-                            .shadow(radius: shadowRadius)
+                    ForEach(GuitarShape.allCases, id: \.self) { shape in
+                        GuitarShapeView(shape: shape)
+//                        ShapeView(bezier: shape.path, pathBounds: GuitarShape.pathBounds)
+//                            .trim(from: 0, to: strokeEndAmount)
+//                            .stroke(shape.strokeColor, lineWidth: 2)
+//                            .shadow(radius: shadowRadius)
+//                            .opacity(isFilled ? 0 : 1)
+//
+//                        ShapeView(shape.path)
+//                            // .fill(shape.fillColor, style: shape.fillStyle)
+//                            .fill(shape.fillColor)
+//                            .shadow(radius: shadowRadius)
+//                            .opacity(isFilled ? 1 : 0)
                     }
                 }
                 .frame(width: width, height: height )
@@ -90,5 +92,3 @@ struct GuitarShapeView2_Previews: PreviewProvider {
         GuitarView2(store: Root.defaultStore)
     }
 }
-
-
