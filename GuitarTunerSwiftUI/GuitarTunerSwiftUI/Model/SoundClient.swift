@@ -7,57 +7,37 @@
 
 import AVFoundation
 
-/// Load and play notes with a MidiSoundFont
-class SoundClient {
-    private let audioEngine = AVAudioEngine()
-    private let unitSampler = AVAudioUnitSampler()
-    private let midiSoundFont: MidiSoundFont
+struct SoundClient {
+    let soundFont: SoundFont
+    let audioEngine = AVAudioEngine()
+    let unitSampler = AVAudioUnitSampler()
+    var volume: Float = 0.5
 
-    init(_ midiSoundFont: MidiSoundFont, volume: Float = 0.5) {
-        self.midiSoundFont = midiSoundFont
+    init(_ soundFont: SoundFont) {
+        self.soundFont = soundFont
         
+        // Setup AudioEngine
         audioEngine.mainMixerNode.volume = volume
         audioEngine.attach(unitSampler)
         audioEngine.connect(unitSampler, to: audioEngine.mainMixerNode, format: nil)
+        
+        // Load SoundFont into UnitSampler
         if let _ = try? audioEngine.start() {
-            loadSoundFont()
+            try? unitSampler.loadSoundBankInstrument(
+                at: soundFont.url, program: 0,
+                bankMSB: UInt8(kAUSampler_DefaultMelodicBankMSB),
+                bankLSB: UInt8(kAUSampler_DefaultBankLSB)
+            )
         }
     }
+}
 
-    deinit {
-        if audioEngine.isRunning {
-            audioEngine.disconnectNodeOutput(unitSampler)
-            audioEngine.detach(unitSampler)
-            audioEngine.stop()
-        }
-    }
-
-    private func loadSoundFont() {
-        guard let url = Bundle.main.url(
-                forResource: midiSoundFont.rawValue,
-                withExtension: "sf2")
-        else { return }
-        try? unitSampler.loadSoundBankInstrument(
-            at: url, program: 0,
-            bankMSB: UInt8(kAUSampler_DefaultMelodicBankMSB),
-            bankLSB: UInt8(kAUSampler_DefaultBankLSB)
-        )
-    }
-
+extension SoundClient {
     func play(_ note: Int) {
         unitSampler.startNote(UInt8(note), withVelocity: 80, onChannel: 0)
     }
-
+    
     func stop(_ note: Int) {
         unitSampler.stopNote(UInt8(note), onChannel: 0)
     }
 }
-
-
-extension SoundClient: Equatable {
-    static func == (lhs: SoundClient, rhs: SoundClient) -> Bool {
-        lhs.midiSoundFont == rhs.midiSoundFont
-    }
-}
-
-

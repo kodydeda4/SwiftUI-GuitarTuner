@@ -10,14 +10,13 @@ import ComposableArchitecture
 import MusicTheory
 
 struct Root {
-    
-    enum Tuning: String, CaseIterable {
+    enum Tuning: String, CaseIterable, Identifiable {
+        var id: String { rawValue }
         case standard = "Standard"
         case dropD = "Drop D"
     }
     
     struct State: Equatable {
-        var soundModel = SoundClient(.guitar3)
         
         var tuning: Tuning = .standard
         var tuningNotes: [Pitch] {
@@ -40,6 +39,8 @@ struct Root {
     
     struct Environment {
         // environment
+        let soundClient = SoundClient(.guitarAcoustic)
+
         
     }
 }
@@ -53,11 +54,11 @@ extension Root {
             switch action {
             
             case let .playMidiNote(midiNote):
-                state.soundModel.play(midiNote)
+                environment.soundClient.play(midiNote)
                 return .none
                 
             case let .stopMidiNote(midiNote):
-                state.soundModel.stop(midiNote)
+                environment.soundClient.stop(midiNote)
                 return .none
                 
             case let .changeTuning(tuning):

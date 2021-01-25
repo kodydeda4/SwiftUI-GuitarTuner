@@ -7,7 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3392857E25BA160900D7E920 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3392857D25BA160900D7E920 /* RootView.swift */; };
+		3379D14525BF0102008C9182 /* SoundFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3379D14425BF0102008C9182 /* SoundFont.swift */; };
+		3379D15325BF02A5008C9182 /* Piano.sf2 in Resources */ = {isa = PBXBuildFile; fileRef = 3379D14F25BF02A5008C9182 /* Piano.sf2 */; };
+		3379D15425BF02A5008C9182 /* Electric Guitar.sf2 in Resources */ = {isa = PBXBuildFile; fileRef = 3379D15025BF02A5008C9182 /* Electric Guitar.sf2 */; };
+		3379D15525BF02A5008C9182 /* Nylon Guitar.sf2 in Resources */ = {isa = PBXBuildFile; fileRef = 3379D15125BF02A5008C9182 /* Nylon Guitar.sf2 */; };
+		3379D15625BF02A5008C9182 /* Acoustic Guitar.sf2 in Resources */ = {isa = PBXBuildFile; fileRef = 3379D15225BF02A5008C9182 /* Acoustic Guitar.sf2 */; };
+		3392857E25BA160900D7E920 /* GuitarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3392857D25BA160900D7E920 /* GuitarView.swift */; };
 		3392858425BA191100D7E920 /* PublicFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3392858325BA191100D7E920 /* PublicFunctions.swift */; };
 		3392858825BA1B8000D7E920 /* FillShapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3392858725BA1B8000D7E920 /* FillShapes.swift */; };
 		3392858C25BA1BB100D7E920 /* StrokeShapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3392858B25BA1BB100D7E920 /* StrokeShapes.swift */; };
@@ -24,21 +29,15 @@
 		33EE30BE25B8692900874B5D /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 33EE30BD25B8692900874B5D /* ComposableArchitecture */; };
 		33EE30CC25B86A5E00874B5D /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EE30CB25B86A5E00874B5D /* View+Extensions.swift */; };
 		33EE30D225B86AA900874B5D /* SoundClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EE30D125B86AA900874B5D /* SoundClient.swift */; };
-		33EE30D525B86AD000874B5D /* MidiSoundFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EE30D425B86AD000874B5D /* MidiSoundFont.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3392857125BA09F000D7E920 /* VL Acoustic Guitar 1.1.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "VL Acoustic Guitar 1.1.sf2"; sourceTree = "<group>"; };
-		3392857225BA09F100D7E920 /* Naturally Decaying B-Guitars.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Naturally Decaying B-Guitars.sf2"; sourceTree = "<group>"; };
-		3392857325BA09F100D7E920 /* Guitar.SF2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Guitar.SF2; sourceTree = "<group>"; };
-		3392857425BA09F200D7E920 /* Guitar_Roland Steel Guitar.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Guitar_Roland Steel Guitar.sf2"; sourceTree = "<group>"; };
-		3392857525BA09F200D7E920 /* Guitar Acoustic melo.SF2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Guitar Acoustic melo.SF2"; sourceTree = "<group>"; };
-		3392857625BA09F300D7E920 /* Guitar_Studio FG460s II Pro Guitar Pack.SF2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Guitar_Studio FG460s II Pro Guitar Pack.SF2"; sourceTree = "<group>"; };
-		3392857725BA09F300D7E920 /* Donnys Guitar.SF2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Donnys Guitar.SF2"; sourceTree = "<group>"; };
-		3392857825BA09F400D7E920 /* NylonFinger.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = NylonFinger.sf2; sourceTree = "<group>"; };
-		3392857925BA09F400D7E920 /* Guitar Acoustic (963KB).sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Guitar Acoustic (963KB).sf2"; sourceTree = "<group>"; };
-		3392857A25BA09F400D7E920 /* Wah Wah Guitar.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Wah Wah Guitar.sf2"; sourceTree = "<group>"; };
-		3392857D25BA160900D7E920 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		3379D14425BF0102008C9182 /* SoundFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundFont.swift; sourceTree = "<group>"; };
+		3379D14F25BF02A5008C9182 /* Piano.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Piano.sf2; sourceTree = "<group>"; };
+		3379D15025BF02A5008C9182 /* Electric Guitar.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Electric Guitar.sf2"; sourceTree = "<group>"; };
+		3379D15125BF02A5008C9182 /* Nylon Guitar.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nylon Guitar.sf2"; sourceTree = "<group>"; };
+		3379D15225BF02A5008C9182 /* Acoustic Guitar.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Acoustic Guitar.sf2"; sourceTree = "<group>"; };
+		3392857D25BA160900D7E920 /* GuitarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuitarView.swift; sourceTree = "<group>"; };
 		3392858325BA191100D7E920 /* PublicFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicFunctions.swift; sourceTree = "<group>"; };
 		3392858725BA1B8000D7E920 /* FillShapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FillShapes.swift; sourceTree = "<group>"; };
 		3392858B25BA1BB100D7E920 /* StrokeShapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeShapes.swift; sourceTree = "<group>"; };
@@ -55,9 +54,7 @@
 		33EE30B025B8681E00874B5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		33EE30B125B8681E00874B5D /* GuitarTunerSwiftUI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GuitarTunerSwiftUI.entitlements; sourceTree = "<group>"; };
 		33EE30CB25B86A5E00874B5D /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
-		33EE30CF25B86A8600874B5D /* emuaps_8mb.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = emuaps_8mb.sf2; sourceTree = "<group>"; };
 		33EE30D125B86AA900874B5D /* SoundClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundClient.swift; sourceTree = "<group>"; };
-		33EE30D425B86AD000874B5D /* MidiSoundFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MidiSoundFont.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +70,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3379D14E25BF02A5008C9182 /* SoundFonts */ = {
+			isa = PBXGroup;
+			children = (
+				3379D14F25BF02A5008C9182 /* Piano.sf2 */,
+				3379D15025BF02A5008C9182 /* Electric Guitar.sf2 */,
+				3379D15125BF02A5008C9182 /* Nylon Guitar.sf2 */,
+				3379D15225BF02A5008C9182 /* Acoustic Guitar.sf2 */,
+			);
+			path = SoundFonts;
+			sourceTree = "<group>";
+		};
+		3379D15925BF02CE008C9182 /* GuitarStuff */ = {
+			isa = PBXGroup;
+			children = (
+				33A8306125B9CAAF00B88CB5 /* GuitarShapes.swift */,
+				33EB9AB625BA62F100184841 /* GuitarPath.swift */,
+			);
+			path = GuitarStuff;
+			sourceTree = "<group>";
+		};
 		33EE309B25B8681D00874B5D = {
 			isa = PBXGroup;
 			children = (
@@ -114,53 +131,33 @@
 			path = State;
 			sourceTree = "<group>";
 		};
-		33EE30C925B86A3B00874B5D /* Views */ = {
+		33EE30C925B86A3B00874B5D /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3392857D25BA160900D7E920 /* RootView.swift */,
+				3392857D25BA160900D7E920 /* GuitarView.swift */,
 				3392858725BA1B8000D7E920 /* FillShapes.swift */,
 				3392858B25BA1BB100D7E920 /* StrokeShapes.swift */,
 				3392858E25BA1C0C00D7E920 /* TunersView.swift */,
+				33A8307025B9D65A00B88CB5 /* ShapeView.swift */,
 			);
-			path = Views;
+			path = View;
 			sourceTree = "<group>";
 		};
 		33EE30CA25B86A3F00874B5D /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				33EB9AB625BA62F100184841 /* GuitarPath.swift */,
-				33A8306125B9CAAF00B88CB5 /* GuitarShapes.swift */,
-				33A8307025B9D65A00B88CB5 /* ShapeView.swift */,
+				33EE30CB25B86A5E00874B5D /* View+Extensions.swift */,
 				339E6D7025B8F7F7000483A0 /* NSBezierPath+Extension.swift */,
 				3392858325BA191100D7E920 /* PublicFunctions.swift */,
-				33EE30CB25B86A5E00874B5D /* View+Extensions.swift */,
 			);
 			path = Common;
-			sourceTree = "<group>";
-		};
-		33EE30CE25B86A6B00874B5D /* MidiSoundFonts */ = {
-			isa = PBXGroup;
-			children = (
-				33EE30D425B86AD000874B5D /* MidiSoundFont.swift */,
-				3392857725BA09F300D7E920 /* Donnys Guitar.SF2 */,
-				3392857925BA09F400D7E920 /* Guitar Acoustic (963KB).sf2 */,
-				3392857525BA09F200D7E920 /* Guitar Acoustic melo.SF2 */,
-				3392857425BA09F200D7E920 /* Guitar_Roland Steel Guitar.sf2 */,
-				3392857625BA09F300D7E920 /* Guitar_Studio FG460s II Pro Guitar Pack.SF2 */,
-				3392857325BA09F100D7E920 /* Guitar.SF2 */,
-				3392857225BA09F100D7E920 /* Naturally Decaying B-Guitars.sf2 */,
-				3392857825BA09F400D7E920 /* NylonFinger.sf2 */,
-				3392857125BA09F000D7E920 /* VL Acoustic Guitar 1.1.sf2 */,
-				3392857A25BA09F400D7E920 /* Wah Wah Guitar.sf2 */,
-				33EE30CF25B86A8600874B5D /* emuaps_8mb.sf2 */,
-			);
-			path = MidiSoundFonts;
 			sourceTree = "<group>";
 		};
 		33EE30D025B86AA000874B5D /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				33EE30D125B86AA900874B5D /* SoundClient.swift */,
+				3379D14425BF0102008C9182 /* SoundFont.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -169,11 +166,12 @@
 			isa = PBXGroup;
 			children = (
 				33EE30A725B8681D00874B5D /* GuitarTunerSwiftUIApp.swift */,
+				3379D15925BF02CE008C9182 /* GuitarStuff */,
 				33EE30C825B86A3500874B5D /* State */,
-				33EE30C925B86A3B00874B5D /* Views */,
+				33EE30C925B86A3B00874B5D /* View */,
 				33EE30D025B86AA000874B5D /* Model */,
+				3379D14E25BF02A5008C9182 /* SoundFonts */,
 				33EE30CA25B86A3F00874B5D /* Common */,
-				33EE30CE25B86A6B00874B5D /* MidiSoundFonts */,
 			);
 			path = GuitarTunerSwiftUI;
 			sourceTree = "<group>";
@@ -254,8 +252,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3379D15325BF02A5008C9182 /* Piano.sf2 in Resources */,
+				3379D15625BF02A5008C9182 /* Acoustic Guitar.sf2 in Resources */,
+				3379D15525BF02A5008C9182 /* Nylon Guitar.sf2 in Resources */,
 				33EE30AF25B8681E00874B5D /* Preview Assets.xcassets in Resources */,
 				33EE30AC25B8681E00874B5D /* Assets.xcassets in Resources */,
+				3379D15425BF02A5008C9182 /* Electric Guitar.sf2 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,11 +276,11 @@
 				33EE30AA25B8681D00874B5D /* RootState.swift in Sources */,
 				3392858F25BA1C0C00D7E920 /* TunersView.swift in Sources */,
 				3392858425BA191100D7E920 /* PublicFunctions.swift in Sources */,
-				3392857E25BA160900D7E920 /* RootView.swift in Sources */,
+				3392857E25BA160900D7E920 /* GuitarView.swift in Sources */,
 				339E6D7125B8F7F7000483A0 /* NSBezierPath+Extension.swift in Sources */,
 				33EE30CC25B86A5E00874B5D /* View+Extensions.swift in Sources */,
-				33EE30D525B86AD000874B5D /* MidiSoundFont.swift in Sources */,
 				33EB9AB725BA62F100184841 /* GuitarPath.swift in Sources */,
+				3379D14525BF0102008C9182 /* SoundFont.swift in Sources */,
 				33EE30A825B8681D00874B5D /* GuitarTunerSwiftUIApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
