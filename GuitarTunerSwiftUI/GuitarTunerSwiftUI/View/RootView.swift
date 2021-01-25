@@ -30,31 +30,21 @@ struct RootView: View {
                 SidebarView(store: store)
 
                 HStack {
-                    //Tuners
-                    VStack {
-                        let tunerNotes = viewStore.tuningNotes.map(\.rawValue).reversed()
-
-                        ForEach(tunerNotes, id: \.self) { midiNote in
-                            Button(Pitch(midiNote: midiNote).description) { viewStore.send(.playMidiNote(midiNote)) }
-                                .frame(width: 40, height: 40)
-                                .buttonStyle(PlainButtonStyle())
-                        }
-                    }
-                    //Guitar
-                    ZStack {
-                        ForEach(GuitarShape.allCases) { shape in
-                            ShapeView(bezier: shape.path, pathBounds: GuitarShape.pathBounds)
-                                .trim(from: 0, to: strokeEndAmount)
-                                .stroke(Color.red, lineWidth: 2)
-                                .shadow(radius: shadowRadius)
-                                .opacity(isFilled ? 0 : 1)
-                            
-                            ShapeView(bezier: shape.path, pathBounds: GuitarShape.pathBounds)
-                                .fill(Color.blue)
-                                .shadow(radius: shadowRadius)
-                                .opacity(isFilled ? 1 : 0)
-                        }
-                    }
+                    GuitarView()
+//                    ZStack {
+//                        ForEach(GuitarShape.allCases) { shape in
+//                            ShapeView(bezier: shape.path, pathBounds: GuitarShape.pathBounds)
+//                                .trim(from: 0, to: strokeEndAmount)
+//                                .stroke(Color.red, lineWidth: 2)
+//                                .shadow(radius: shadowRadius)
+//                                .opacity(isFilled ? 0 : 1)
+//
+//                            ShapeView(bezier: shape.path, pathBounds: GuitarShape.pathBounds)
+//                                .fill(Color.blue)
+//                                .shadow(radius: shadowRadius)
+//                                .opacity(isFilled ? 1 : 0)
+//                        }
+//                    }
                     .navigationTitle("Guitar Tuner")
                     .frame(width: width, height: height)
                     .onAppear {

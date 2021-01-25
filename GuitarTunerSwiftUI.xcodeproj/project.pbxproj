@@ -15,6 +15,7 @@
 		3392857E25BA160900D7E920 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3392857D25BA160900D7E920 /* RootView.swift */; };
 		3392858425BA191100D7E920 /* PublicFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3392858325BA191100D7E920 /* PublicFunctions.swift */; };
 		3392858825BA1B8000D7E920 /* Shape Color Information.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3392858725BA1B8000D7E920 /* Shape Color Information.swift */; };
+		3394E9E825BF30680045B9E6 /* GuitarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3394E9E725BF30680045B9E6 /* GuitarView.swift */; };
 		339E6D7125B8F7F7000483A0 /* NSBezierPath+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339E6D7025B8F7F7000483A0 /* NSBezierPath+Extension.swift */; };
 		33A8307125B9D65A00B88CB5 /* ShapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A8307025B9D65A00B88CB5 /* ShapeView.swift */; };
 		33AC947225BF09DA00A51279 /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AC947125BF09DA00A51279 /* SidebarView.swift */; };
@@ -38,6 +39,7 @@
 		3392857D25BA160900D7E920 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		3392858325BA191100D7E920 /* PublicFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicFunctions.swift; sourceTree = "<group>"; };
 		3392858725BA1B8000D7E920 /* Shape Color Information.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shape Color Information.swift"; sourceTree = "<group>"; };
+		3394E9E725BF30680045B9E6 /* GuitarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuitarView.swift; sourceTree = "<group>"; };
 		339E6D7025B8F7F7000483A0 /* NSBezierPath+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSBezierPath+Extension.swift"; sourceTree = "<group>"; };
 		33A8307025B9D65A00B88CB5 /* ShapeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeView.swift; sourceTree = "<group>"; };
 		33AC947125BF09DA00A51279 /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 				33AC947125BF09DA00A51279 /* SidebarView.swift */,
 				33A8307025B9D65A00B88CB5 /* ShapeView.swift */,
 				3392858725BA1B8000D7E920 /* Shape Color Information.swift */,
+				3394E9E725BF30680045B9E6 /* GuitarView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -261,6 +264,7 @@
 				33EE30AA25B8681D00874B5D /* RootState.swift in Sources */,
 				3392858425BA191100D7E920 /* PublicFunctions.swift in Sources */,
 				3392857E25BA160900D7E920 /* RootView.swift in Sources */,
+				3394E9E825BF30680045B9E6 /* GuitarView.swift in Sources */,
 				339E6D7125B8F7F7000483A0 /* NSBezierPath+Extension.swift in Sources */,
 				33EE30CC25B86A5E00874B5D /* View+Extensions.swift in Sources */,
 				33EB9AB725BA62F100184841 /* GuitarShape.swift in Sources */,
