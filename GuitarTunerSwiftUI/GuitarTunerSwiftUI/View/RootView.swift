@@ -95,6 +95,11 @@ struct GuitarView: View {
     var body: some View {
         ZStack {
             ZStack {
+                ShapeView(bezier: GuitarShape.tunerLines.path, pathBounds: GuitarShape.pathBounds)
+                    .fill(primaryColor)
+                    .opacity(isFilled ? 1 : 0)
+                    .shadow(radius: shadowRadius)
+                
                 ShapeView(bezier: GuitarShape.fretboard.path, pathBounds: GuitarShape.pathBounds)
                     .fill(gradient([.white, .black]))
                     .opacity(isFilled ? 1 : 0)
@@ -160,11 +165,6 @@ struct GuitarView: View {
                     .shadow(radius: shadowRadius)
                 
                 ShapeView(bezier: GuitarShape.frontTunersPeg.path, pathBounds: GuitarShape.pathBounds)
-                    .fill(primaryColor)
-                    .opacity(isFilled ? 1 : 0)
-                    .shadow(radius: shadowRadius)
-                
-                ShapeView(bezier: GuitarShape.tunerLines.path, pathBounds: GuitarShape.pathBounds)
                     .fill(primaryColor)
                     .opacity(isFilled ? 1 : 0)
                     .shadow(radius: shadowRadius)
