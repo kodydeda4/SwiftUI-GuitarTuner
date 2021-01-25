@@ -38,17 +38,13 @@ struct RootView: View {
                            primaryColor: primaryColor,
                            secondaryColor: secondaryColor
                 )
-                .border(Color.blue)
                 TunersView(isFilled: isFilled,
                            notes: notes,
                            primaryColor: primaryColor
                 )
-                .border(Color.red)
             }
-            .padding()
-            .border(Color.gray)
             .frame(width: GuitarShape.pathBounds.width * 0.5, height: GuitarShape.pathBounds.height * 0.5)
-            
+            .padding()
             .navigationTitle("Guitar Tuner")
             .onAppear {
                 withAnimation(
@@ -197,7 +193,7 @@ struct TunersView: View {
             }
             .padding(31)
             .buttonStyle(PlainButtonStyle())
-            .position(x: 27, y: 39)
+            .position(x: 30, y: 39)
             
             Button(action: {}) {
                 Circle()
@@ -207,7 +203,7 @@ struct TunersView: View {
             }
             .padding(31)
             .buttonStyle(PlainButtonStyle())
-            .position(x: 27, y: -21)
+            .position(x: 30, y: -21)
             
             Button(action: {}) {
                 Circle()
@@ -217,7 +213,7 @@ struct TunersView: View {
             }
             .padding(31)
             .buttonStyle(PlainButtonStyle())
-            .position(x: 27, y: -81)
+            .position(x: 30, y: -81)
             
             Button(action: {}) {
                 Circle()
@@ -227,7 +223,7 @@ struct TunersView: View {
             }
             .padding(31)
             .buttonStyle(PlainButtonStyle())
-            .position(x: 27, y: -141)
+            .position(x: 30, y: -141)
             
             Button(action: {}) {
                 Circle()
@@ -237,7 +233,7 @@ struct TunersView: View {
             }
             .padding(31)
             .buttonStyle(PlainButtonStyle())
-            .position(x: 27, y: -200)
+            .position(x: 30, y: -200)
             
             Button(action: {}) {
                 Circle()
@@ -247,7 +243,7 @@ struct TunersView: View {
             }
             .padding(31)
             .buttonStyle(PlainButtonStyle())
-            .position(x: 27, y: -261)
+            .position(x: 30, y: -261)
         }
     }
 }
