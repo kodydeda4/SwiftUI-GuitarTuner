@@ -14,19 +14,25 @@ struct RootView: View {
     let notes = ["E","A","D","G","B","E"]
     
     @State var isFilled = false
+    @State var strokeEndAmount: CGFloat = 0
+    @State var opacity: CGFloat = 0
+
+    let animationDuration: Double = 1
+
     let shadowRadius:CGFloat = 4
     var primaryColor = Color.gray
     var secondaryColor = Color.white
     
-    @State var strokeEndAmount: CGFloat = 0
-    @State var opacity: CGFloat = 0
-    
-    let animationDuration: Double = 1
-    
-    
     var body: some View {
         WithViewStore(store) { viewStore in
             ZStack {
+                ForEach(GuitarShape.allCases) { guitarShape in
+                    ShapeView(bezier: guitarShape.path, pathBounds: GuitarShape.pathBounds)
+                    .trim(from: 0, to: strokeEndAmount)
+                    .stroke(primaryColor, lineWidth: 1)
+                    .shadow(radius: shadowRadius)
+                    .opacity(isFilled ? 0 : 1)
+                }
                 GuitarView(isFilled: isFilled,
                            shadowRadius: shadowRadius,
                            primaryColor: primaryColor,
@@ -84,6 +90,7 @@ struct RootView: View {
     }
 }
 // MARK:- GuitarView
+ 
 struct GuitarView: View {
     let notes = ["E","A","D","G","B","E"]
     
@@ -188,9 +195,9 @@ struct TunersView: View {
                     .opacity(isFilled ? 1 : 0)
                     .overlay(Text(notes[0]))
             }
-            .padding(30)
+            .padding(31)
             .buttonStyle(PlainButtonStyle())
-            .position(x: 30, y: 42)
+            .position(x: 27, y: 39)
             
             Button(action: {}) {
                 Circle()
@@ -198,9 +205,9 @@ struct TunersView: View {
                     .opacity(isFilled ? 1 : 0)
                     .overlay(Text(notes[1]))
             }
-            .padding(30)
+            .padding(31)
             .buttonStyle(PlainButtonStyle())
-            .position(x: 30, y: -17)
+            .position(x: 27, y: -21)
             
             Button(action: {}) {
                 Circle()
@@ -208,9 +215,9 @@ struct TunersView: View {
                     .opacity(isFilled ? 1 : 0)
                     .overlay(Text(notes[2]))
             }
-            .padding(30)
+            .padding(31)
             .buttonStyle(PlainButtonStyle())
-            .position(x: 30, y: -77)
+            .position(x: 27, y: -81)
             
             Button(action: {}) {
                 Circle()
@@ -218,9 +225,9 @@ struct TunersView: View {
                     .opacity(isFilled ? 1 : 0)
                     .overlay(Text(notes[3]))
             }
-            .padding(30)
+            .padding(31)
             .buttonStyle(PlainButtonStyle())
-            .position(x: 30, y: -137)
+            .position(x: 27, y: -141)
             
             Button(action: {}) {
                 Circle()
@@ -228,9 +235,9 @@ struct TunersView: View {
                     .opacity(isFilled ? 1 : 0)
                     .overlay(Text(notes[4]))
             }
-            .padding(30)
+            .padding(31)
             .buttonStyle(PlainButtonStyle())
-            .position(x: 30, y: -196)
+            .position(x: 27, y: -200)
             
             Button(action: {}) {
                 Circle()
@@ -238,9 +245,9 @@ struct TunersView: View {
                     .opacity(isFilled ? 1 : 0)
                     .overlay(Text(notes[5]))
             }
-            .padding(30)
+            .padding(31)
             .buttonStyle(PlainButtonStyle())
-            .position(x: 30, y: -256)
+            .position(x: 27, y: -261)
         }
     }
 }
