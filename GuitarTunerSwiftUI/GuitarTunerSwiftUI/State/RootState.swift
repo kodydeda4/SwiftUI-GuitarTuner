@@ -17,8 +17,13 @@ struct Root {
     }
     
     struct State: Equatable {
+        let notes = ["E","A","D","G","B","E"]
         
-        var isFilled = true
+        var scale: CGFloat = 0.5
+        var width: CGFloat { GuitarShape.pathBounds.width * scale }
+        var height: CGFloat { GuitarShape.pathBounds.height * scale }
+
+        var isFilled = false
         var strokeEndAmount: CGFloat = 0
         var opacity: CGFloat = 0
         
