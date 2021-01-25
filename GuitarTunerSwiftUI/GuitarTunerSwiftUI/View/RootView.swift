@@ -20,12 +20,11 @@ struct RootView: View {
     
     let shadowRadius:CGFloat = 4
     let animationDuration: Double = 1
-
+    
     var body: some View {
         let width: CGFloat = size * GuitarShape.pathBounds.width
         let height: CGFloat = size * GuitarShape.pathBounds.height
 
-        
         WithViewStore(store) { viewStore in
             NavigationView {
                 SidebarView(store: store)
@@ -33,7 +32,9 @@ struct RootView: View {
                 HStack {
                     //Tuners
                     VStack {
-                        ForEach(viewStore.tuningNotes.map(\.rawValue).reversed(), id: \.self) { midiNote in
+                        let tunerNotes = viewStore.tuningNotes.map(\.rawValue).reversed()
+
+                        ForEach(tunerNotes, id: \.self) { midiNote in
                             Button(Pitch(midiNote: midiNote).description) { viewStore.send(.playMidiNote(midiNote)) }
                                 .frame(width: 40, height: 40)
                                 .buttonStyle(PlainButtonStyle())
