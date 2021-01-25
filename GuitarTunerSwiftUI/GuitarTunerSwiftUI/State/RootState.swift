@@ -17,6 +17,18 @@ struct Root {
     }
     
     struct State: Equatable {
+        
+        var isFilled = true
+        var strokeEndAmount: CGFloat = 0
+        var opacity: CGFloat = 0
+        
+        let animationDuration: Double = 1
+        
+        let shadowRadius:CGFloat = 4
+        var primaryColor = Color.gray
+        var secondaryColor = Color.white
+        
+        
         var rootNote: Key = "E"
         var tuning: Tuning = .standard
         var tuningNotes: [Pitch] {
@@ -36,6 +48,8 @@ struct Root {
         case stopMidiNote(Int)
         case changeTuning(Tuning)
         case changeKey(Key)
+        case updateStrokeEndAmount(CGFloat)
+        case toggleIsFilled
     }
     
     struct Environment {
@@ -70,6 +84,12 @@ extension Root {
                 state.rootNote = key
                 return .none
                 
+            case let .updateStrokeEndAmount(amount):
+                state.strokeEndAmount = amount
+                return .none
+            case .toggleIsFilled:
+                state.isFilled.toggle()
+                return .none
             }
         }
     )

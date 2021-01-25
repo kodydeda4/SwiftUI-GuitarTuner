@@ -12,50 +12,33 @@ import MusicTheory
 struct RootView: View {
     let store: Store<Root.State, Root.Action>
     let notes = ["E","A","D","G","B","E"]
-    
-    @State var isFilled = false
-    @State var strokeEndAmount: CGFloat = 0
-    @State var opacity: CGFloat = 0
-
-    let animationDuration: Double = 1
-
-    let shadowRadius:CGFloat = 4
-    var primaryColor = Color.gray
-    var secondaryColor = Color.white
-    
+        
     var body: some View {
         WithViewStore(store) { viewStore in
             ZStack {
                 ForEach(GuitarShape.allCases) { guitarShape in
                     ShapeView(bezier: guitarShape.path, pathBounds: GuitarShape.pathBounds)
-                    .trim(from: 0, to: strokeEndAmount)
-                        .stroke(Color.red, lineWidth: 1)
-                    .shadow(radius: shadowRadius)
-                    .opacity(isFilled ? 0 : 1)
+                        .trim(from: 0, to: 1)
+                        .stroke(viewStore.primaryColor, lineWidth: 1)
+                        .shadow(radius: viewStore.shadowRadius)
+                        .opacity(viewStore.isFilled ? 0 : 1)
                 }
-                GuitarView(isFilled: isFilled,
-                           shadowRadius: shadowRadius,
-                           primaryColor: primaryColor,
-                           secondaryColor: secondaryColor
-                )
-                TunersView(isFilled: isFilled,
-                           notes: notes,
-                           primaryColor: primaryColor
-                )
+                GuitarView(store: store)
+                TunersView(store: store)
             }
             .frame(width: GuitarShape.pathBounds.width * 0.5, height: GuitarShape.pathBounds.height * 0.5)
             .padding()
             .navigationTitle("Guitar Tuner")
             .onAppear {
                 withAnimation(
-                    .easeInOut(duration: animationDuration)) {
-                    strokeEndAmount = CGFloat(animationDuration)
+                    .easeInOut(duration: viewStore.animationDuration)) {
+                    viewStore.send(.updateStrokeEndAmount(CGFloat(viewStore.animationDuration)))
                 }
                 withAnimation(
                     Animation
-                        .easeInOut(duration: animationDuration)
-                        .delay(animationDuration)) {
-                    isFilled = true
+                        .easeInOut(duration: viewStore.animationDuration)
+                        .delay(viewStore.animationDuration)) {
+                    viewStore.send(.toggleIsFilled)
                 }
             }
             .toolbar {
@@ -86,91 +69,97 @@ struct RootView: View {
     }
 }
 // MARK:- GuitarView
- 
+
+
+
 struct GuitarView: View {
     let notes = ["E","A","D","G","B","E"]
+    let store: Store<Root.State, Root.Action>
     
-    var isFilled: Bool
-    let shadowRadius:CGFloat
-    var primaryColor: Color
-    var secondaryColor: Color
+    
+    //    var viewStore.isFilled: Bool
+    //    let shadowRadius:CGFloat
+    //    var viewStore.primaryColor: Color
+    //    var viewStore.secondaryColor: Color
     
     var body: some View {
-        ZStack {
+        WithViewStore(store) { viewStore in
             ZStack {
-                ShapeView(bezier: GuitarShape.tunerLines.path, pathBounds: GuitarShape.pathBounds)
-                    .fill(primaryColor)
-                    .opacity(isFilled ? 1 : 0)
-                    .shadow(radius: shadowRadius)
+                ZStack {
+                    ShapeView(bezier: GuitarShape.tunerLines.path, pathBounds: GuitarShape.pathBounds)
+                        .fill(viewStore.primaryColor)
+                        .opacity(viewStore.isFilled ? 1 : 0)
+                        .shadow(radius: viewStore.shadowRadius)
+                    
+                    ShapeView(bezier: GuitarShape.fretboard.path, pathBounds: GuitarShape.pathBounds)
+                        .fill(gradient([.white, .black]))
+                        .opacity(viewStore.isFilled ? 1 : 0)
+                        .shadow(radius: viewStore.shadowRadius)
+                    
+                    ShapeView(bezier: GuitarShape.fret.path, pathBounds: GuitarShape.pathBounds)
+                        .fill(gradient([.white, .gray]))
+                        .opacity(viewStore.isFilled ? 1 : 0)
+                        .shadow(radius: viewStore.shadowRadius)
+                    
+                    ShapeView(bezier: GuitarShape.nut.path, pathBounds: GuitarShape.pathBounds)
+                        .fill(gradient([.white, .gray]))
+                        .opacity(viewStore.isFilled ? 1 : 0)
+                        .shadow(radius: viewStore.shadowRadius)
+                    
+                    ShapeView(bezier: GuitarShape.rearTunersBase.path, pathBounds: GuitarShape.pathBounds)
+                        .fill(viewStore.primaryColor)
+                        .opacity(viewStore.isFilled ? 1 : 0)
+                        .shadow(radius: viewStore.shadowRadius)
+                    
+                    ShapeView(bezier: GuitarShape.rearTunersStem.path, pathBounds: GuitarShape.pathBounds)
+                        .fill(viewStore.secondaryColor)
+                        .opacity(viewStore.isFilled ? 1 : 0)
+                        .shadow(radius: viewStore.shadowRadius)
+                    
+                    ShapeView(bezier: GuitarShape.rearTunersKey.path, pathBounds: GuitarShape.pathBounds)
+                        .fill(viewStore.primaryColor)
+                        .opacity(viewStore.isFilled ? 1 : 0)
+                        .shadow(radius: viewStore.shadowRadius)
+                }
                 
-                ShapeView(bezier: GuitarShape.fretboard.path, pathBounds: GuitarShape.pathBounds)
-                    .fill(gradient([.white, .black]))
-                    .opacity(isFilled ? 1 : 0)
-                    .shadow(radius: shadowRadius)
+                ZStack {
+                    ShapeView(bezier: GuitarShape.guitarHeadstock.path, pathBounds: GuitarShape.pathBounds)
+                        .fill(gradient([.accentColor, .gray]))
+                        .opacity(viewStore.isFilled ? 1 : 0)
+                        .shadow(radius: viewStore.shadowRadius)
+                    
+                    ShapeView(bezier: GuitarShape.frontTunersBase.path, pathBounds: GuitarShape.pathBounds)
+                        .fill(viewStore.primaryColor)
+                        .opacity(viewStore.isFilled ? 1 : 0)
+                        .shadow(radius: viewStore.shadowRadius)
+                    
+                    ShapeView(bezier: GuitarShape.frontTunersBolt.path, pathBounds: GuitarShape.pathBounds)
+                        .fill(viewStore.secondaryColor)
+                        .opacity(viewStore.isFilled ? 1 : 0)
+                        .shadow(radius: viewStore.shadowRadius)
+                }
                 
-                ShapeView(bezier: GuitarShape.fret.path, pathBounds: GuitarShape.pathBounds)
-                    .fill(gradient([.white, .gray]))
-                    .opacity(isFilled ? 1 : 0)
-                    .shadow(radius: shadowRadius)
-                
-                ShapeView(bezier: GuitarShape.nut.path, pathBounds: GuitarShape.pathBounds)
-                    .fill(gradient([.white, .gray]))
-                    .opacity(isFilled ? 1 : 0)
-                    .shadow(radius: shadowRadius)
-                
-                ShapeView(bezier: GuitarShape.rearTunersBase.path, pathBounds: GuitarShape.pathBounds)
-                    .fill(primaryColor)
-                    .opacity(isFilled ? 1 : 0)
-                    .shadow(radius: shadowRadius)
-                
-                ShapeView(bezier: GuitarShape.rearTunersStem.path, pathBounds: GuitarShape.pathBounds)
-                    .fill(secondaryColor)
-                    .opacity(isFilled ? 1 : 0)
-                    .shadow(radius: shadowRadius)
-                
-                ShapeView(bezier: GuitarShape.rearTunersKey.path, pathBounds: GuitarShape.pathBounds)
-                    .fill(primaryColor)
-                    .opacity(isFilled ? 1 : 0)
-                    .shadow(radius: shadowRadius)
-            }
-            
-            ZStack {
-                ShapeView(bezier: GuitarShape.guitarHeadstock.path, pathBounds: GuitarShape.pathBounds)
-                    .fill(gradient([.accentColor, .gray]))
-                    .opacity(isFilled ? 1 : 0)
-                    .shadow(radius: shadowRadius)
-                
-                ShapeView(bezier: GuitarShape.frontTunersBase.path, pathBounds: GuitarShape.pathBounds)
-                    .fill(primaryColor)
-                    .opacity(isFilled ? 1 : 0)
-                    .shadow(radius: shadowRadius)
-                
-                ShapeView(bezier: GuitarShape.frontTunersBolt.path, pathBounds: GuitarShape.pathBounds)
-                    .fill(secondaryColor)
-                    .opacity(isFilled ? 1 : 0)
-                    .shadow(radius: shadowRadius)
-            }
-            
-            ZStack {
-                ShapeView(bezier: GuitarShape.guitarStrings.path, pathBounds: GuitarShape.pathBounds)
-                    .fill(gradient([.white, .gray]))
-                    .opacity(isFilled ? 1 : 0)
-                    .shadow(radius: shadowRadius)
-                
-                ShapeView(bezier: GuitarShape.stringTreeBase.path, pathBounds: GuitarShape.pathBounds)
-                    .fill(primaryColor)
-                    .opacity(isFilled ? 1 : 0)
-                    .shadow(radius: shadowRadius)
-                
-                ShapeView(bezier: GuitarShape.stringTreeBolt.path, pathBounds: GuitarShape.pathBounds)
-                    .fill(secondaryColor)
-                    .opacity(isFilled ? 1 : 0)
-                    .shadow(radius: shadowRadius)
-                
-                ShapeView(bezier: GuitarShape.frontTunersPeg.path, pathBounds: GuitarShape.pathBounds)
-                    .fill(primaryColor)
-                    .opacity(isFilled ? 1 : 0)
-                    .shadow(radius: shadowRadius)
+                ZStack {
+                    ShapeView(bezier: GuitarShape.guitarStrings.path, pathBounds: GuitarShape.pathBounds)
+                        .fill(gradient([.white, .gray]))
+                        .opacity(viewStore.isFilled ? 1 : 0)
+                        .shadow(radius: viewStore.shadowRadius)
+                    
+                    ShapeView(bezier: GuitarShape.stringTreeBase.path, pathBounds: GuitarShape.pathBounds)
+                        .fill(viewStore.primaryColor)
+                        .opacity(viewStore.isFilled ? 1 : 0)
+                        .shadow(radius: viewStore.shadowRadius)
+                    
+                    ShapeView(bezier: GuitarShape.stringTreeBolt.path, pathBounds: GuitarShape.pathBounds)
+                        .fill(viewStore.secondaryColor)
+                        .opacity(viewStore.isFilled ? 1 : 0)
+                        .shadow(radius: viewStore.shadowRadius)
+                    
+                    ShapeView(bezier: GuitarShape.frontTunersPeg.path, pathBounds: GuitarShape.pathBounds)
+                        .fill(viewStore.primaryColor)
+                        .opacity(viewStore.isFilled ? 1 : 0)
+                        .shadow(radius: viewStore.shadowRadius)
+                }
             }
         }
     }
@@ -179,71 +168,73 @@ struct GuitarView: View {
 // MARK:- TunerButtonView
 
 struct TunersView: View {
-    var isFilled: Bool
-    var notes: [String]
-    var primaryColor: Color
+    let store: Store<Root.State, Root.Action>
+    let notes = ["E","A","D","G","B","E"]
+
     
     var body: some View {
-        VStack {
-            Button(action: {}) {
-                Circle()
-                    .fill(primaryColor)
-                    .opacity(isFilled ? 1 : 0)
-                    .overlay(Text(notes[0]))
+        WithViewStore(store) { viewStore in
+            VStack {
+                Button(action: {}) {
+                    Circle()
+                        .fill(viewStore.primaryColor)
+                        .opacity(viewStore.isFilled ? 1 : 0)
+                        .overlay(Text(notes[0]))
+                }
+                .padding(32)
+                .buttonStyle(PlainButtonStyle())
+                .position(x: 30, y: 43)
+                
+                Button(action: {}) {
+                    Circle()
+                        .fill(viewStore.primaryColor)
+                        .opacity(viewStore.isFilled ? 1 : 0)
+                        .overlay(Text(notes[1]))
+                }
+                .padding(32)
+                .buttonStyle(PlainButtonStyle())
+                .position(x: 30, y: -17)
+                
+                Button(action: {}) {
+                    Circle()
+                        .fill(viewStore.primaryColor)
+                        .opacity(viewStore.isFilled ? 1 : 0)
+                        .overlay(Text(notes[2]))
+                }
+                .padding(32)
+                .buttonStyle(PlainButtonStyle())
+                .position(x: 30, y: -77)
+                
+                Button(action: {}) {
+                    Circle()
+                        .fill(viewStore.primaryColor)
+                        .opacity(viewStore.isFilled ? 1 : 0)
+                        .overlay(Text(notes[3]))
+                }
+                .padding(32)
+                .buttonStyle(PlainButtonStyle())
+                .position(x: 30, y: -137)
+                
+                Button(action: {}) {
+                    Circle()
+                        .fill(viewStore.primaryColor)
+                        .opacity(viewStore.isFilled ? 1 : 0)
+                        .overlay(Text(notes[4]))
+                }
+                .padding(32)
+                .buttonStyle(PlainButtonStyle())
+                .position(x: 30, y: -196)
+                
+                Button(action: {}) {
+                    Circle()
+                        .fill(viewStore.primaryColor)
+                        .opacity(viewStore.isFilled ? 1 : 0)
+                        .overlay(Text(notes[5]))
+                }
+                .padding(32)
+                .buttonStyle(PlainButtonStyle())
+                .position(x: 30, y: -256)
             }
-            .padding(32)
-            .buttonStyle(PlainButtonStyle())
-            .position(x: 30, y: 43)
-            
-            Button(action: {}) {
-                Circle()
-                    .fill(primaryColor)
-                    .opacity(isFilled ? 1 : 0)
-                    .overlay(Text(notes[1]))
-            }
-            .padding(32)
-            .buttonStyle(PlainButtonStyle())
-            .position(x: 30, y: -17)
-            
-            Button(action: {}) {
-                Circle()
-                    .fill(primaryColor)
-                    .opacity(isFilled ? 1 : 0)
-                    .overlay(Text(notes[2]))
-            }
-            .padding(32)
-            .buttonStyle(PlainButtonStyle())
-            .position(x: 30, y: -77)
-            
-            Button(action: {}) {
-                Circle()
-                    .fill(primaryColor)
-                    .opacity(isFilled ? 1 : 0)
-                    .overlay(Text(notes[3]))
-            }
-            .padding(32)
-            .buttonStyle(PlainButtonStyle())
-            .position(x: 30, y: -137)
-            
-            Button(action: {}) {
-                Circle()
-                    .fill(primaryColor)
-                    .opacity(isFilled ? 1 : 0)
-                    .overlay(Text(notes[4]))
-            }
-            .padding(32)
-            .buttonStyle(PlainButtonStyle())
-            .position(x: 30, y: -196)
-            
-            Button(action: {}) {
-                Circle()
-                    .fill(primaryColor)
-                    .opacity(isFilled ? 1 : 0)
-                    .overlay(Text(notes[5]))
-            }
-            .padding(32)
-            .buttonStyle(PlainButtonStyle())
-            .position(x: 30, y: -256)
         }
     }
 }
