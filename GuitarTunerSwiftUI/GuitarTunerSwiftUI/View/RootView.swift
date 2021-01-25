@@ -11,7 +11,6 @@ import MusicTheory
 
 struct RootView: View {
     let store: Store<Root.State, Root.Action>
-    let notes = ["E","A","D","G","B","E"]
     
     var body: some View {
         WithViewStore(store) { viewStore in

@@ -17,7 +17,8 @@ struct Root {
     }
     
     struct State: Equatable {
-        let notes = ["E","A","D","G","B","E"]
+        
+        let notes: [Pitch] = ["E2","A2","D3","G3","B3","E4"]
         
         var scale: CGFloat = 0.5
         var width: CGFloat { GuitarShape.pathBounds.width * scale }
