@@ -11,13 +11,13 @@ import MusicTheory
 
 struct Root {
     enum Tuning: String, CaseIterable, Identifiable {
-        var id: String { rawValue }
+        var id: Tuning { self }
         case standard = "Standard"
         case dropD = "Drop D"
     }
     
     struct State: Equatable {
-        
+        var rootNote: Key = "E"
         var tuning: Tuning = .standard
         var tuningNotes: [Pitch] {
             switch tuning {
@@ -35,6 +35,7 @@ struct Root {
         case playMidiNote(Int)
         case stopMidiNote(Int)
         case changeTuning(Tuning)
+        case changeKey(Key)
     }
     
     struct Environment {
@@ -64,6 +65,11 @@ extension Root {
             case let .changeTuning(tuning):
                 state.tuning = tuning
                 return .none
+                
+            case let .changeKey(key):
+                state.rootNote = key
+                return .none
+                
             }
         }
     )

@@ -1,60 +1,46 @@
 //
-//  RootView.swift
+//  GuitarView.swift
 //  GuitarTunerSwiftUI
 //
-//  Created by Kody Deda on 1/20/21.
+//  Created by Kody Deda on 1/25/21.
 //
-//  ------------------------------------------------------------------
-//  [Source] SwiftUI - SVG to UIBezierPath with Animation
-//  https://www.youtube.com/watch?v=IUpN7sIwaqc&ab_channel=StewartLynch
-//  ------------------------------------------------------------------
 
-// MARK:- RootView
-
-import Cocoa
 import SwiftUI
 import ComposableArchitecture
 import MusicTheory
 
-
 struct GuitarView: View {
     let store: Store<Root.State, Root.Action>
-
+    
+    let size: CGFloat = 0.2
     @State var strokeEndAmount: CGFloat = 0
     @State var opacity: CGFloat = 0
     @State var isFilled = false
-
-    let size: CGFloat = 0.2
+    
     let shadowRadius:CGFloat = 4
     let animationDuration: Double = 1
-
-
+    
     var body: some View {
         let width: CGFloat = size * GuitarShape.pathBounds.width
         let height: CGFloat = size * GuitarShape.pathBounds.height
 
         WithViewStore(store) { viewStore in
-            NavigationView {
-                List {}
-                HStack {
-                    ZStack {
-                        ForEach(GuitarShape.allCases) { shape in
-                            ShapeView(bezier: shape.path, pathBounds: GuitarShape.pathBounds)
-                                .trim(from: 0, to: strokeEndAmount)
-                                .stroke(Color.red, lineWidth: 2)
-                                .shadow(radius: shadowRadius)
-                                .opacity(isFilled ? 0 : 1)
-                                
-                            ShapeView(bezier: shape.path, pathBounds: GuitarShape.pathBounds)
-                                .fill(Color.blue)
-                                .shadow(radius: shadowRadius)
-                                .opacity(isFilled ? 1 : 0)
-                        }
-                    }
-                    TunersView(store: store)
-                    .frame(width: width, height: height)
+            ZStack {
+                ForEach(GuitarShape.allCases) { shape in
+                    ShapeView(bezier: shape.path, pathBounds: GuitarShape.pathBounds)
+                        .trim(from: 0, to: strokeEndAmount)
+                        .stroke(Color.red, lineWidth: 2)
+                        .shadow(radius: shadowRadius)
+                        .opacity(isFilled ? 0 : 1)
+                    
+                    ShapeView(bezier: shape.path, pathBounds: GuitarShape.pathBounds)
+                        .fill(Color.blue)
+                        .shadow(radius: shadowRadius)
+                        .opacity(isFilled ? 1 : 0)
                 }
             }
+            .navigationTitle("Guitar Tuner")
+            .frame(width: width, height: height)
             .onAppear {
                 withAnimation(
                     .easeInOut(duration: animationDuration)) {
@@ -67,7 +53,6 @@ struct GuitarView: View {
                     isFilled = true
                 }
             }
-            .navigationTitle("Guitar Tuner")
             .toolbar {
                 ToolbarItem {
                     Picker("Tuning",
@@ -80,11 +65,21 @@ struct GuitarView: View {
                         }
                     }
                 }
+                ToolbarItem {
+                    Picker("Key", selection:
+                            viewStore.binding(
+                                get: \.rootNote,
+                                send: Root.Action.changeKey)
+                    ) {
+                        ForEach(Key.keysWithFlats, id: \.self) { key in
+                            Text(key.description)
+                        }
+                    }
+                }
             }
         }
     }
 }
-
 
 struct GuitarView_Previews: PreviewProvider {
     static var previews: some View {
