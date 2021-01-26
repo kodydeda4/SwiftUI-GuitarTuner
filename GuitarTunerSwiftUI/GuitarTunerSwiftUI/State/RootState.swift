@@ -20,18 +20,10 @@ struct Root {
         var rootNote: Key = "E"
         var tuning: Tuning = .standard
         let notes: [Pitch] = ["E2","A2","D3","G3","B3","E4"]
-        var scale: CGFloat = 0.5
-        var width: CGFloat { GuitarShape.pathBounds.width * scale }
-        var height: CGFloat { GuitarShape.pathBounds.height * scale }
-
-        var isFilled = false
-        var strokeEndAmount: CGFloat = 0
-        var opacity: CGFloat = 0
-        let animationDuration: Double = 1
         
-        let shadowRadius:CGFloat = 4
-        var primaryColor = Color.gray
-        var secondaryColor = Color.white
+        
+
+        
         
     }
     
@@ -41,8 +33,6 @@ struct Root {
         case stopMidiNote(Int)
         case changeTuning(Tuning)
         case changeKey(Key)
-        case updateStrokeEndAmount(CGFloat)
-        case toggleIsFilled
     }
     
     struct Environment {
@@ -77,12 +67,6 @@ extension Root {
                 state.rootNote = key
                 return .none
                 
-            case let .updateStrokeEndAmount(amount):
-                state.strokeEndAmount = amount
-                return .none
-            case .toggleIsFilled:
-                state.isFilled.toggle()
-                return .none
             }
         }
     )

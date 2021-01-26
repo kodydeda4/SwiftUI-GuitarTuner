@@ -9,18 +9,22 @@ import SwiftUI
 import Cocoa
 
 struct GuitarOutlineView: View {
+    @State var trim: Bool
+    
     var body: some View {
-        ForEach(GuitarShape.allCases) { shape in
-            ShapeView(shape)
-                .trim(from: 0, to: 1)
-                .stroke(Color.gray)
-                .shadow(radius: 4)
+        ZStack {
+            ForEach(GuitarShape.allCases) { shape in
+                ShapeView(shape)
+                    .trim(from: 0, to: trim ? 1 : 0)
+                    .stroke(Color.gray)
+                    .shadow(radius: 4)
+            }
         }
     }
 }
 
 struct GuitarOutlineView_Previews: PreviewProvider {
     static var previews: some View {
-        GuitarOutlineView()
+        GuitarOutlineView(trim: true)
     }
 }

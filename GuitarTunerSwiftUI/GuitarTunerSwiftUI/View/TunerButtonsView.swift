@@ -17,32 +17,32 @@ struct TunerButtonsView: View {
             let noteMidiValues = viewStore.notes.map(\.rawValue)
             
             VStack {
-                TunerButtonView(noteDescriptions[0]) {
+                TunerButtonView(text: noteDescriptions[0]) {
                     viewStore.send(.playMidiNote(noteMidiValues[0]))
                 }
                 .position(x: 30, y: 43)
                 
-                TunerButtonView(noteDescriptions[1]) {
+                TunerButtonView(text: noteDescriptions[1]) {
                     viewStore.send(.playMidiNote(noteMidiValues[1]))
                 }
                 .position(x: 30, y: -17)
                 
-                TunerButtonView(noteDescriptions[2]) {
+                TunerButtonView(text: noteDescriptions[2]) {
                     viewStore.send(.playMidiNote(noteMidiValues[2]))
                 }
                 .position(x: 30, y: -77)
                 
-                TunerButtonView(noteDescriptions[3]) {
+                TunerButtonView(text: noteDescriptions[3]) {
                     viewStore.send(.playMidiNote(noteMidiValues[3]))
                 }
                 .position(x: 30, y: -137)
                 
-                TunerButtonView(noteDescriptions[4]) {
+                TunerButtonView(text: noteDescriptions[4]) {
                     viewStore.send(.playMidiNote(noteMidiValues[4]))
                 }
                 .position(x: 30, y: -196)
                 
-                TunerButtonView(noteDescriptions[5]) {
+                TunerButtonView(text: noteDescriptions[5]) {
                     viewStore.send(.playMidiNote(noteMidiValues[5]))
                 }
                 .position(x: 30, y: -256)
@@ -55,10 +55,10 @@ private struct TunerButtonView: View {
     var text: String
     var action: () -> Void
     
-    init(_ text: String,
-         closure: @escaping () -> ()) {
+    init(text: String,
+         action: @escaping () -> ()) {
         self.text = text
-        self.action = closure
+        self.action = action
     }
     
     var body: some View {

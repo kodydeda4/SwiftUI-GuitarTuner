@@ -9,37 +9,46 @@ import SwiftUI
 import ComposableArchitecture
 import MusicTheory
 
+
+
 struct RootView: View {
     let store: Store<Root.State, Root.Action>
-    @State var isFilled = true
+    let viewWidth = GuitarShape.pathBounds.width * 0.5
+    let viewHeight = GuitarShape.pathBounds.height * 0.5
+    
+    @State var isOutlined = false
+    @State var isFilled = false
+    @State var endAmount: CGFloat = 0
+        
+    func myAnimations(duration: Double) -> Void {
+        let animation = Animation.easeInOut(duration: duration)
+        withAnimation(animation) {
+            isOutlined.toggle()
+        }
+        withAnimation(animation.delay(duration)) {
+            isFilled.toggle()
+        }
+    }
     
     var body: some View {
         WithViewStore(store) { viewStore in
             ZStack {
-                GuitarOutlineView()
-                    .opacity(isFilled ? 0 : 0)
-
+                ForEach(GuitarShape.allCases) { shape in
+                    ShapeView(shape)
+                        .trim(from: 0, to: isOutlined ? 1 : 0)
+                        .stroke(Color.gray)
+                        .opacity(isFilled ? 0 : 1)
+                }
                 GuitarFilledView()
-                    .opacity(isFilled ? 1 : 1)
-
+                    .opacity(isFilled ? 1 : 0)
+                
                 TunerButtonsView(store: store)
-                    .opacity(isFilled ? 1 : 1)
+                    .opacity(isFilled ? 1 : 0)
             }
-            .frame(width: viewStore.width, height: viewStore.height)
+            .frame(width: viewWidth, height: viewHeight)
             .padding()
             .navigationTitle("Guitar Tuner")
-            .onAppear {
-                withAnimation(
-                    .easeInOut(duration: viewStore.animationDuration)) {
-                    viewStore.send(.updateStrokeEndAmount(CGFloat(viewStore.animationDuration)))
-                }
-                withAnimation(
-                    Animation
-                        .easeInOut(duration: viewStore.animationDuration)
-                        .delay(viewStore.animationDuration)) {
-                    viewStore.send(.toggleIsFilled)
-                }
-            }
+            .onAppear { myAnimations(duration: 2) }
             .toolbar {
                 ToolbarItem {
                     Picker("Tuning",
