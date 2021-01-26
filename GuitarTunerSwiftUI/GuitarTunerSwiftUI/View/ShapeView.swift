@@ -35,21 +35,3 @@ extension ShapeView {
         self.pathBounds = GuitarShape.pathBounds
     }
 }
-
-//extension CGRect {
-//    func pathScaledToBounds(
-//        _ bezier: () -> NSBezierPath,
-//        _ pathBounds: CGRect = GuitarShape.pathBounds) -> Path {
-//
-//        let pointScale = (width >= height)
-//            ? max(pathBounds.height, pathBounds.width)
-//            : min(pathBounds.height, pathBounds.width)
-//
-//        let pointTransform = CGAffineTransform(scaleX: 1/pointScale, y: 1/pointScale)
-//        let path = Path(bezier().cgPath).applying(pointTransform)
-//        let multiplier = min(width, height)
-//        let transform = CGAffineTransform(scaleX: multiplier, y: multiplier)
-//
-//        return path.applying(transform)
-//    }
-//}

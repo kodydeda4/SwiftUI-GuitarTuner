@@ -54,6 +54,7 @@ struct GuitarFilledView: View {
                     .fill(Color.white)
             }
         }
+        .shadow(radius: 2)
     }
 }
 
