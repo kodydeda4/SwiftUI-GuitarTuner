@@ -18,6 +18,10 @@ An animated Guitar Tuner.
 * [AudioKit/AudioKit v5](https://github.com/AudioKit/AudioKit)
 * [pointfreeco/TCA Architecture](https://github.com/pointfreeco/swift-composable-architecture)
 
+## Resource
+* [youtube/StewartLynch/SwiftUI - SVG to UIBezierPath with Animation](https://www.youtube.com/watch?v=IUpN7sIwaqc&ab_channel=StewartLynch)
+
+
 ## Author
 
 * **Kody Deda** - [kad5420](https://github.com/kad5420)
