@@ -15,15 +15,7 @@ struct RootView: View {
     var body: some View {
         WithViewStore(store) { viewStore in
             ZStack {
-                ForEach(GuitarShape.allCases) { guitarShape in
-                    ShapeView(bezier: guitarShape.path, pathBounds: GuitarShape.pathBounds)
-                        .trim(from: 0, to: 1)
-                        .stroke(viewStore.primaryColor)
-                        .shadow(radius: viewStore.shadowRadius)
-                        .opacity(viewStore.isFilled ? 0 : 1)
-                }
-                GuitarView(store: store)
-                TunersView(store: store)
+                GuitarView()
             }
             .frame(width: viewStore.width, height: viewStore.height)
             .padding()

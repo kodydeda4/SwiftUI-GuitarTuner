@@ -33,7 +33,7 @@ struct Root {
         var primaryColor = Color.gray
         var secondaryColor = Color.white
         
-        
+    }
     
     enum Action: Equatable {
         // action
