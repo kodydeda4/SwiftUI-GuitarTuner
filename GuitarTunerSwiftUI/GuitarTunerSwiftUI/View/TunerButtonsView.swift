@@ -13,8 +13,8 @@ struct TunerButtonsView: View {
         
     var body: some View {
         WithViewStore(store) { viewStore in
-            let noteDescriptions = viewStore.notes.map(\.description)
-            let noteMidiValues = viewStore.notes.map(\.rawValue)
+            let noteDescriptions = viewStore.notes.reversed().map(\.description)
+            let noteMidiValues = viewStore.notes.reversed().map(\.rawValue)
             
             VStack {
                 TunerButtonView(text: noteDescriptions[0]) {
