@@ -20,7 +20,7 @@ struct TunerButtonsView: View {
                         Button(action: { viewStore.send(.playNote(note.rawValue)) }) {
                             Circle()
                                 .fill(Color.gray)
-                                .overlay(Text(note.description))
+                                .overlay(Text(note.description.filter{ $0.isLetter }))
                         }
                         .padding(32)
                         .buttonStyle(PlainButtonStyle())
