@@ -19,7 +19,7 @@ struct TunerButtonsView: View {
                     ZStack {
                         Button(action: { viewStore.send(.playNote(note.rawValue)) }) {
                             Circle()
-                                .stroke(Color.gray)
+                                .fill(Color.gray)
                                 .overlay(Text(note.description))
                         }
                         .padding(32)
