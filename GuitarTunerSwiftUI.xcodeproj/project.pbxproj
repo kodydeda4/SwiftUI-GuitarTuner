@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		330CED9725C07A6F006C8901 /* GuitarOutlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330CED9625C07A6F006C8901 /* GuitarOutlineView.swift */; };
+		330CED9B25C07BC4006C8901 /* TunerButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330CED9A25C07BC4006C8901 /* TunerButtonsView.swift */; };
 		3379D14525BF0102008C9182 /* SoundFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3379D14425BF0102008C9182 /* SoundFont.swift */; };
 		3379D15325BF02A5008C9182 /* Piano.sf2 in Resources */ = {isa = PBXBuildFile; fileRef = 3379D14F25BF02A5008C9182 /* Piano.sf2 */; };
 		3379D15425BF02A5008C9182 /* Electric Guitar.sf2 in Resources */ = {isa = PBXBuildFile; fileRef = 3379D15025BF02A5008C9182 /* Electric Guitar.sf2 */; };
@@ -17,7 +19,7 @@
 		339E6D7125B8F7F7000483A0 /* NSBezierPath+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339E6D7025B8F7F7000483A0 /* NSBezierPath+Extension.swift */; };
 		33A8307125B9D65A00B88CB5 /* ShapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A8307025B9D65A00B88CB5 /* ShapeView.swift */; };
 		33AC947225BF09DA00A51279 /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AC947125BF09DA00A51279 /* SidebarView.swift */; };
-		33E8330725BF6B52005419A4 /* GuitarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E8330625BF6B52005419A4 /* GuitarView.swift */; };
+		33E8330725BF6B52005419A4 /* GuitarFilledView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E8330625BF6B52005419A4 /* GuitarFilledView.swift */; };
 		33EB9AB725BA62F100184841 /* GuitarShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EB9AB625BA62F100184841 /* GuitarShape.swift */; };
 		33EE30A825B8681D00874B5D /* GuitarTunerSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EE30A725B8681D00874B5D /* GuitarTunerSwiftUIApp.swift */; };
 		33EE30AA25B8681D00874B5D /* RootState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EE30A925B8681D00874B5D /* RootState.swift */; };
@@ -30,6 +32,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		330CED9625C07A6F006C8901 /* GuitarOutlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuitarOutlineView.swift; sourceTree = "<group>"; };
+		330CED9A25C07BC4006C8901 /* TunerButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TunerButtonsView.swift; sourceTree = "<group>"; };
 		3379D14425BF0102008C9182 /* SoundFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundFont.swift; sourceTree = "<group>"; };
 		3379D14F25BF02A5008C9182 /* Piano.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Piano.sf2; sourceTree = "<group>"; };
 		3379D15025BF02A5008C9182 /* Electric Guitar.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Electric Guitar.sf2"; sourceTree = "<group>"; };
@@ -40,7 +44,7 @@
 		339E6D7025B8F7F7000483A0 /* NSBezierPath+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSBezierPath+Extension.swift"; sourceTree = "<group>"; };
 		33A8307025B9D65A00B88CB5 /* ShapeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeView.swift; sourceTree = "<group>"; };
 		33AC947125BF09DA00A51279 /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
-		33E8330625BF6B52005419A4 /* GuitarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuitarView.swift; sourceTree = "<group>"; };
+		33E8330625BF6B52005419A4 /* GuitarFilledView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuitarFilledView.swift; sourceTree = "<group>"; };
 		33EB9AB625BA62F100184841 /* GuitarShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuitarShape.swift; sourceTree = "<group>"; };
 		33EE30A425B8681D00874B5D /* GuitarTunerSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GuitarTunerSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33EE30A725B8681D00874B5D /* GuitarTunerSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuitarTunerSwiftUIApp.swift; sourceTree = "<group>"; };
@@ -124,7 +128,9 @@
 				3392857D25BA160900D7E920 /* RootView.swift */,
 				33AC947125BF09DA00A51279 /* SidebarView.swift */,
 				33A8307025B9D65A00B88CB5 /* ShapeView.swift */,
-				33E8330625BF6B52005419A4 /* GuitarView.swift */,
+				33E8330625BF6B52005419A4 /* GuitarFilledView.swift */,
+				330CED9625C07A6F006C8901 /* GuitarOutlineView.swift */,
+				330CED9A25C07BC4006C8901 /* TunerButtonsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -254,13 +260,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				330CED9725C07A6F006C8901 /* GuitarOutlineView.swift in Sources */,
 				33A8307125B9D65A00B88CB5 /* ShapeView.swift in Sources */,
 				33EE30D225B86AA900874B5D /* SoundClient.swift in Sources */,
+				330CED9B25C07BC4006C8901 /* TunerButtonsView.swift in Sources */,
 				33AC947225BF09DA00A51279 /* SidebarView.swift in Sources */,
 				33EE30AA25B8681D00874B5D /* RootState.swift in Sources */,
 				3392858425BA191100D7E920 /* PublicFunctions.swift in Sources */,
 				3392857E25BA160900D7E920 /* RootView.swift in Sources */,
-				33E8330725BF6B52005419A4 /* GuitarView.swift in Sources */,
+				33E8330725BF6B52005419A4 /* GuitarFilledView.swift in Sources */,
 				339E6D7125B8F7F7000483A0 /* NSBezierPath+Extension.swift in Sources */,
 				33EE30CC25B86A5E00874B5D /* View+Extensions.swift in Sources */,
 				33EB9AB725BA62F100184841 /* GuitarShape.swift in Sources */,

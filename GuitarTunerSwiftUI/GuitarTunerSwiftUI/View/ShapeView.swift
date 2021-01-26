@@ -29,6 +29,13 @@ struct ShapeView: Shape {
     }
 }
 
+extension ShapeView {
+    init(_ shape: GuitarShape) {
+        self.bezier = shape.path
+        self.pathBounds = GuitarShape.pathBounds
+    }
+}
+
 //extension CGRect {
 //    func pathScaledToBounds(
 //        _ bezier: () -> NSBezierPath,

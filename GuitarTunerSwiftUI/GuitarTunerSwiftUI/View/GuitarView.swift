@@ -8,31 +8,7 @@
 import SwiftUI
 import ComposableArchitecture
 
-
-private extension ShapeView {
-    init(_ shape: GuitarShape) {
-        self.bezier = shape.path
-        self.pathBounds = GuitarShape.pathBounds
-    }
-}
-// MARK:- GuitarView
-
-struct GuitarOutlineView: View {
-    @State var isFilled: Bool
-    var body: some View {
-        ForEach(GuitarShape.allCases) { shape in
-            ShapeView(shape)
-                .trim(from: 0, to: 1)
-                .stroke(Color.gray)
-                .shadow(radius: 4)
-                .opacity(isFilled ? 1 : 0)
-        }
-    }
-}
-
-struct GuitarView: View {
-    @State var isFilled = true
-    
+struct GuitarFilledView: View {
     let gradientShapes: [GuitarShape] = [
         .fret,
         .nut,
@@ -59,31 +35,34 @@ struct GuitarView: View {
     
     var body: some View {
         ZStack {
-            GuitarOutlineView(isFilled: !isFilled)
+            ShapeView(GuitarShape.fretboard)
+                .fill(gradient([.gray, .black]))
+
+            ShapeView(GuitarShape.guitarHeadstock)
+                .fill(gradient([.accentColor, .gray]))
             
-            ZStack {
-                ShapeView(GuitarShape.guitarHeadstock)
-                    .fill(gradient([.accentColor, .gray]))
-                
-                ForEach(gradientShapes) { ShapeView($0).fill(gradient([.white, .gray])) }
-                ForEach(primaryGuitarShapes) { ShapeView($0).fill(Color.gray) }
-                ForEach(secondaryGuitarShapes) { ShapeView($0).fill(Color.white) }
+            ForEach(gradientShapes) {
+                ShapeView($0)
+                    .fill(gradient([.white, .gray]))
             }
-            .opacity(isFilled ? 1 : 0)
-            .shadow(radius: 4)
+            ForEach(primaryGuitarShapes) {
+                ShapeView($0)
+                    .fill(Color.gray)
+            }
+            ForEach(secondaryGuitarShapes) {
+                ShapeView($0)
+                    .fill(Color.white)
+            }
         }
+        .shadow(radius: 4)
     }
 }
-
-
-
 
 struct GuitarView_Previews: PreviewProvider {
     static var previews: some View {
-        GuitarView()
+        GuitarFilledView()
     }
 }
-
 
 // MARK:- TunerButtonView
 
@@ -145,7 +124,3 @@ struct TunerButtonsView_Previews: PreviewProvider {
         TunerButtonsView(store: Root.defaultStore)
     }
 }
-
-
-
-

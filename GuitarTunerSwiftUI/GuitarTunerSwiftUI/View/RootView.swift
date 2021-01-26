@@ -11,11 +11,19 @@ import MusicTheory
 
 struct RootView: View {
     let store: Store<Root.State, Root.Action>
+    @State var isFilled = true
     
     var body: some View {
         WithViewStore(store) { viewStore in
             ZStack {
-                GuitarView()
+                GuitarOutlineView()
+                    .opacity(isFilled ? 0 : 0)
+
+                GuitarFilledView()
+                    .opacity(isFilled ? 1 : 1)
+
+                TunerButtonsView(store: store)
+                    .opacity(isFilled ? 1 : 1)
             }
             .frame(width: viewStore.width, height: viewStore.height)
             .padding()
