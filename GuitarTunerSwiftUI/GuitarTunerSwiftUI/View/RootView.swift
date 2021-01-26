@@ -18,9 +18,8 @@ struct RootView: View {
     
     @State var isOutlined = false
     @State var isFilled = false
-    @State var endAmount: CGFloat = 0
         
-    func myAnimations(duration: Double) -> Void {
+    func animate(duration: Double) -> Void {
         let animation = Animation.easeInOut(duration: duration)
         withAnimation(animation) {
             isOutlined.toggle()
@@ -48,7 +47,7 @@ struct RootView: View {
             .frame(width: viewWidth, height: viewHeight)
             .padding()
             .navigationTitle("Guitar Tuner")
-            .onAppear { myAnimations(duration: 2) }
+            .onAppear { animate(duration: 2) }
             .toolbar {
                 ToolbarItem {
                     Picker("Tuning",
