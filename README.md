@@ -8,19 +8,15 @@ An animated Guitar Tuner.
 
 ## Features
 
-* SwiftUI Animation (onAppear & by action)
+* SwiftUI Animations (onAppear & by action)
 * AudioKit Sounds
-* Converted Illustrator Project -> SwiftUI Shape's
+* Designed in Illustrator, converted from SVG to SwiftUI Shapes
 
 ## Built With
 
 * [cemolcay/MusicTheory](https://github.com/cemolcay/MusicTheory)
 * [AudioKit/AudioKit v5](https://github.com/AudioKit/AudioKit)
 * [pointfreeco/TCA Architecture](https://github.com/pointfreeco/swift-composable-architecture)
-
-## Resource
-* [StewartLynch - "SwiftUI - SVG to UIBezierPath with Animation"](https://www.youtube.com/watch?v=IUpN7sIwaqc&ab_channel=StewartLynch)
-
 
 ## Author
 
