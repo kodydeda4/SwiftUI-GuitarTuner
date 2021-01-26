@@ -19,7 +19,7 @@ An animated Guitar Tuner.
 * [pointfreeco/TCA Architecture](https://github.com/pointfreeco/swift-composable-architecture)
 
 ## Resource
-* [youtube/StewartLynch/SwiftUI - SVG to UIBezierPath with Animation](https://www.youtube.com/watch?v=IUpN7sIwaqc&ab_channel=StewartLynch)
+* [StewartLynch - "SwiftUI - SVG to UIBezierPath with Animation"](https://www.youtube.com/watch?v=IUpN7sIwaqc&ab_channel=StewartLynch)
 
 
 ## Author
