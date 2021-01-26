@@ -2,7 +2,7 @@
 An animated Guitar Tuner.
 
 
-[![Everything Is AWESOME](https://user-images.githubusercontent.com/45678211/105915740-1135c300-5ffe-11eb-833c-4737ebb0afbb.png)](https://www.youtube.com/watch?v=u9WQj7DdjwU&feature=youtu.be)
+[![Everything Is AWESOME](https://user-images.githubusercontent.com/45678211/105915896-3a565380-5ffe-11eb-87bb-b90498f46165.png)](https://www.youtube.com/watch?v=u9WQj7DdjwU&feature=youtu.be)
 *YouTube Video Demo*
 
 ## Features
