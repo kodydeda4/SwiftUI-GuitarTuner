@@ -17,9 +17,9 @@ struct Root {
     }
     
     struct State: Equatable {
-        
+        var rootNote: Key = "E"
+        var tuning: Tuning = .standard
         let notes: [Pitch] = ["E2","A2","D3","G3","B3","E4"]
-        
         var scale: CGFloat = 0.5
         var width: CGFloat { GuitarShape.pathBounds.width * scale }
         var height: CGFloat { GuitarShape.pathBounds.height * scale }
@@ -27,7 +27,6 @@ struct Root {
         var isFilled = false
         var strokeEndAmount: CGFloat = 0
         var opacity: CGFloat = 0
-        
         let animationDuration: Double = 1
         
         let shadowRadius:CGFloat = 4
@@ -35,18 +34,6 @@ struct Root {
         var secondaryColor = Color.white
         
         
-        var rootNote: Key = "E"
-        var tuning: Tuning = .standard
-        var tuningNotes: [Pitch] {
-            switch tuning {
-            
-            case .standard:
-                return ["E2", "A2", "D3", "G3", "B3", "E4"]
-            case .dropD:
-                return ["D2", "A2", "D3", "G3", "B3", "E4"]
-            }
-        }
-    }
     
     enum Action: Equatable {
         // action
