@@ -1,4 +1,4 @@
-# 🎸 GuitarTunerSwiftUI | 2021
+# 🎸 GuitarTuner | 2021
 An animated Guitar Tuner.
 
 
